@@ -14,9 +14,11 @@ GameObject:
   - component: {fileID: 1317161556960234491}
   - component: {fileID: 285618176223162276}
   - component: {fileID: 2620865828427409803}
-  m_Layer: 0
+  - component: {fileID: 2112283022684254786}
+  - component: {fileID: 6172959535913799754}
+  m_Layer: 8
   m_Name: SimpleCoal
-  m_TagString: Untagged
+  m_TagString: Burnable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,5 +130,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 915641f183fc2057ebd1dff72f62ce20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
   targetPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &2112283022684254786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8467199602045135719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1428d3445aa94b8d7a72f435072ef402, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6172959535913799754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8467199602045135719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a064d9aa274de2cd9afbab06a30ed4f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burnPower: 1
+  initialHealth: 1
+  speed: 10
