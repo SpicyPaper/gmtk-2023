@@ -39,13 +39,13 @@ public class CollideWithBurnable : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         if (other.gameObject.tag == "Burnable"){
-            collisionList.Add(other.GetComponent<Burnable>());
+            collisionList.Add(other.transform.parent.GetComponent<Burnable>());
         }
     }
 
     void OnTriggerExit(Collider other){
         if (other.gameObject.tag == "Burnable"){
-            collisionList.Remove(other.GetComponent<Burnable>());
+            collisionList.Remove(other.transform.parent.GetComponent<Burnable>());
         }
     }
 }

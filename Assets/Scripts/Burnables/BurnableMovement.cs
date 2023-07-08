@@ -30,13 +30,4 @@ public class BurnableMovement : MonoBehaviour
         );
     }
 
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Fire")
-        {
-            GameController.instance.BurnableReachedFire(burnable);
-        }
-    }
-
 }
