@@ -10,10 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 248329149361572527}
   - component: {fileID: 8368001441199360488}
-<<<<<<< HEAD
-=======
-  - component: {fileID: 6944105111475300139}
->>>>>>> 347951b1d391a52958278c7f3f875954bc932b24
   - component: {fileID: 1095090296804830235}
   - component: {fileID: 6027279291989321691}
   m_Layer: 0
@@ -50,24 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f12488c04c5f4ed85ecb84e846e864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-=======
---- !u!114 &6944105111475300139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1032663243725954202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29ebe99cfd966b8a98dfabec36daab9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementSpeed: 5000
-  friction: 1.05
-  targetPosition: {x: 0, y: 0, z: 0}
->>>>>>> 347951b1d391a52958278c7f3f875954bc932b24
 --- !u!114 &1095090296804830235
 MonoBehaviour:
   m_ObjectHideFlags: 0

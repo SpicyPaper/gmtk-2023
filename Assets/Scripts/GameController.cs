@@ -11,7 +11,6 @@ public class GameController : MonoBehaviour
     public static GameState gameState = GameState.Level1;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
