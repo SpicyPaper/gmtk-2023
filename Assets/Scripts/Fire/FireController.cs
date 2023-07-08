@@ -20,6 +20,8 @@ public class FireController : MonoBehaviour
     /* create a singleton */
     public static FireController instance = null;
 
+    public float intensityChangeFrequency = 2;
+    private Light fireLight;
     void Start()
     {
         if (instance == null)
@@ -29,6 +31,7 @@ public class FireController : MonoBehaviour
             burnPowerDecay = -Mathf.Abs(burnPowerDecay);
             initialScale = transform.localScale.x;
             burnPower = initialBurnPower;
+            fireLight = GameObject.Find("FireLight").GetComponent<Light>();
             setFireScale(initialScale);
         }
         else if (instance != this)
@@ -43,6 +46,7 @@ public class FireController : MonoBehaviour
         transform.localScale = new Vector3(scale, scale, scale);
         float yTarget = (transform.localScale.y) / 2.0f;
         transform.Translate(0, (yTarget - transform.position.y), 0);
+        fireLight.range = scale*30;
     }
 
     public void addBurnPower(float burnPower)
@@ -62,5 +66,7 @@ public class FireController : MonoBehaviour
     {
         /* gradually reducing burn power */
         addBurnPower(burnPowerDecay * Time.deltaTime);
+        float perlinNoise = Mathf.PerlinNoise(Time.frameCount/1000f*intensityChangeFrequency,0) * 4 + 1;
+        fireLight.intensity = perlinNoise;
     }
 }

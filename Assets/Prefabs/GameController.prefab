@@ -111,7 +111,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &550436508479317115
 Transform:
   m_ObjectHideFlags: 0
@@ -154,12 +154,12 @@ GameObject:
   - component: {fileID: 6502179752888929676}
   - component: {fileID: 3217385524033261964}
   m_Layer: 0
-  m_Name: BigCoalSpawner
+  m_Name: MatchSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6502179752888929676
 Transform:
   m_ObjectHideFlags: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9990661e037b26b98da2ba3c2ed227a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burnablePrefab: {fileID: 8730967686974684178, guid: ee85f13cacb3e79a9aa7fd57c6b52059, type: 3}
-  spawnInterval: 5
+  burnablePrefab: {fileID: 8400563685522901383, guid: d9553d9960ca8bc8ab1d1730222ee627, type: 3}
+  spawnInterval: 2
   spawnCenter: {x: 0, y: 0, z: 0}
   spawnDistance: 40
