@@ -9,7 +9,7 @@ public class BurnableCollider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        burnable = transform.parent.GetComponent<Burnable>();
+        burnable = GetComponent<Burnable>();
 
         /* disable collision with Tag Burnable */
         Physics.IgnoreLayerCollision(8, 8);

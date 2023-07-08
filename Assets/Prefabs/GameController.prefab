@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 550436508479317115}
   - component: {fileID: 5086006765616100653}
   m_Layer: 0
-  m_Name: SimpleCoalSpawner
+  m_Name: PetrolCanSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9990661e037b26b98da2ba3c2ed227a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burnablePrefab: {fileID: 5855090560040310285, guid: 9c64f1488f89ee377b3547c9068c4d2e, type: 3}
+  burnablePrefab: {fileID: 9005850083707033920, guid: 1eb997221e5a58e499d043d46973dcd1, type: 3}
   spawnInterval: 1
   spawnCenter: {x: 0, y: 0, z: 0}
   spawnDistance: 40
