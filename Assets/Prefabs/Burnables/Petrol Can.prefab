@@ -197,11 +197,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2826156937119192283}
   - component: {fileID: 3440424862824690126}
-  - component: {fileID: 4687994249789927254}
   - component: {fileID: 8690764182371274498}
   - component: {fileID: 1554256005145187392}
   - component: {fileID: 5743942294306781930}
   - component: {fileID: 7593945980023725996}
+  - component: {fileID: 238887713148449503}
   m_Layer: 8
   m_Name: Petrol Can Visual
   m_TagString: Burnable
@@ -249,18 +249,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &4687994249789927254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3202998791088016993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 885ff5973b0db6905a0ad5509c241013, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &8690764182371274498
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -303,6 +291,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
+  angleAtStep: 1
+  oilSpillPrefab: {fileID: 1332367696291378478, guid: 0ea6666dbdec3c07ea8534fe58f108d8, type: 3}
+  oilSpillInterval: 0.0001
 --- !u!114 &7593945980023725996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +308,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burnPower: 5
   initialHealth: 1
-  speed: 10
+  speed: 5
+--- !u!114 &238887713148449503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3202998791088016993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af193b8fdfcc8a889250b0fdf784d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oilSpillPrefab: {fileID: 1332367696291378478, guid: 0ea6666dbdec3c07ea8534fe58f108d8, type: 3}
 --- !u!1 &3293777242385930954
 GameObject:
   m_ObjectHideFlags: 0
