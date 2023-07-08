@@ -46,7 +46,7 @@ public class FireController : MonoBehaviour
         transform.localScale = new Vector3(scale, scale, scale);
         float yTarget = (transform.localScale.y) / 2.0f;
         transform.Translate(0, (yTarget - transform.position.y), 0);
-        fireLight.range = scale*10;
+        fireLight.range = scale*30;
     }
 
     public void addBurnPower(float burnPower)
