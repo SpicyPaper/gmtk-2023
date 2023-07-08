@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
+  timePerZig: 1
+  zigAngle: 160
 --- !u!54 &4880726547854395491
 Rigidbody:
   m_ObjectHideFlags: 0
