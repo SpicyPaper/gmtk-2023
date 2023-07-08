@@ -13,6 +13,8 @@ public class LevelSpawnConfig
 {
     public GameState level;
     public List<BurnableSpawnChance> burnableSpawnChances;
+    public int numberOfBurnables;
+    public float spawnInterval = 4.0f;
 }
 
 [System.Serializable]

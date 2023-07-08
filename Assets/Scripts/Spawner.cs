@@ -9,9 +9,6 @@ public class Spawner : MonoBehaviour
     public BurnableSpawnConfig spawnConfig;
 
     [SerializeField]
-    private float spawnInterval = 4.0f;
-
-    [SerializeField]
     private Vector3 spawnCenter = Vector3.zero;
 
     [SerializeField]
@@ -28,41 +25,55 @@ public class Spawner : MonoBehaviour
 
     void FixedUpdate()
     {
-        spawnTimer += Time.fixedDeltaTime;
-        if (spawnTimer >= spawnInterval)
-        {
-            spawnTimer = 0.0f;
-            SpawnBurnable();
-        }
+        TrySpawnBurnable();
     }
 
-    private void SpawnBurnable()
+
+    private void TrySpawnBurnable()
     {
         // Generate a random number between 0 and sum of probabilities in burnablePrefabs
         LevelSpawnConfig levelConfig = spawnConfig.levelSpawnConfigs.Find(config => config.level == GameController.gameState);
 
         if (levelConfig != null)
         {
-            float probSum = levelConfig.burnableSpawnChances.Sum(x => x.spawnProbability);
-            float randomNum = Random.Range(0.0f, probSum);
-            foreach (var item in levelConfig.burnableSpawnChances)
+
+            spawnTimer += Time.fixedDeltaTime;
+            if (spawnTimer < levelConfig.spawnInterval)
             {
-                if (randomNum < item.spawnProbability)
+                return;
+            }
+
+
+            for (int i = 0; i < levelConfig.numberOfBurnables; i++)
+            {
+                float probSum = levelConfig.burnableSpawnChances.Sum(x => x.spawnProbability);
+                float randomNum = Random.Range(0.0f, probSum);
+                foreach (var item in levelConfig.burnableSpawnChances)
                 {
-                    GameObject burnable = Instantiate(
-                        item.burnablePrefab,
-                        GetRandomSpawnPosition(),
-                        Quaternion.identity
-                    );
-                    break;
-                }
-                else
-                {
-                    randomNum -= item.spawnProbability;
+                    if (randomNum < item.spawnProbability)
+                    {
+                        SpawnBurnable(item.burnablePrefab);
+                        break;
+                    }
+                    else
+                    {
+                        randomNum -= item.spawnProbability;
+                    }
                 }
             }
+            spawnTimer = 0.0f;
+
         }
 
+    }
+
+    private void SpawnBurnable(GameObject burnable)
+    {
+        Instantiate(
+            burnable,
+            GetRandomSpawnPosition(),
+            Quaternion.identity
+        );
     }
 
     private Vector3 GetRandomSpawnPosition()
