@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BurnableCollider : MonoBehaviour
 {
-    private Burnable burnable;
+    protected  Burnable burnable;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +19,6 @@ public class BurnableCollider : MonoBehaviour
     {
         if (collision.gameObject.tag == "Fire")
         {
-            Debug.Log("Burnable reached fire");
             GameController.instance.BurnableReachedFire(burnable);
         }
     }

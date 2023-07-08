@@ -20,14 +20,20 @@ public class DecorBuilder : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < maxDecor; i++){
-            SpawnSingleDecor();
+        // create an Empty GameObject called Decor
+        GameObject decor = new GameObject("Decor");
+
+        for (int i = 0; i < maxDecor; i++)
+        {
+            SpawnSingleDecor(decor);
         }
     }
 
-    private void SpawnSingleDecor()
+    private void SpawnSingleDecor(GameObject parent = null)
     {
         GameObject decor = Instantiate(decorPrefab, GetRandomSpawnPosition(), Quaternion.identity);
+        if (parent != null)
+            decor.transform.parent = parent.transform;
     }
 
     private Vector3 GetRandomSpawnPosition()

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraHandler : MonoBehaviour
@@ -10,15 +8,7 @@ public class CameraHandler : MonoBehaviour
 
     [SerializeField] private Vector3 targetPosition = Vector3.zero;
 
-    private Vector3 initialPosition;
-
     private float speed;
-
-
-    void Start()
-    {
-        initialPosition = transform.position;
-    }
 
 
     // Update is called once per frame

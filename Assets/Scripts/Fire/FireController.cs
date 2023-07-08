@@ -78,4 +78,5 @@ public class FireController : MonoBehaviour
         float perlinNoise = Mathf.PerlinNoise(Time.frameCount/1000f*intensityChangeFrequency,0) * 4 + 1;
         fireLight.intensity = perlinNoise;
     }
+
 }

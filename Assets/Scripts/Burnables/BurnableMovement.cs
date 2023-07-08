@@ -23,7 +23,7 @@ public class BurnableMovement : MonoBehaviour
         ChildMovementSetup();
     }
 
-    protected void ChildMovementSetup(){
+    protected virtual void ChildMovementSetup(){
 
     }
 

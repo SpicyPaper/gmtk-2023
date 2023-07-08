@@ -29,8 +29,6 @@ public class GameController : MonoBehaviour
 
     public bool BurnableClicked(Burnable burnable)
     {
-        Debug.Log("Burnable clicked from GameController");
-        Debug.Log("Burnable power: " + burnable.GetBurnPower());
         bool isBurnableDead = HitBurnable(burnable);
 
         return isBurnableDead;
@@ -45,7 +43,6 @@ public class GameController : MonoBehaviour
 
     public void BurnableReachedFire(Burnable burnable)
     {
-        Debug.Log("Burnable reached fire");
         FireController.instance.addBurnPower(burnable.GetBurnPower());
         Destroy(burnable.gameObject);
         // Destroy(burnable.transform.parent.gameObject);
