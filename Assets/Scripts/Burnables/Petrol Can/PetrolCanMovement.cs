@@ -11,23 +11,26 @@ public class PetrolCanMovement : BurnableMovement
 
     void FixedUpdate()
     {
+        if (burnable.GetSpeed() > 0)
+        {
+            Vector3 oldPosition = transform.position;
 
-        Vector3 oldPosition = transform.position;
+            transform.RotateAround(
+                targetPosition,
+                Vector3.up,
+                angleAtStep
+            );
 
-        transform.RotateAround(
-            targetPosition,
-            Vector3.up,
-            angleAtStep
-        );
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            targetPosition,
-            burnable.GetSpeed() * Time.deltaTime
-        );
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                targetPosition,
+                burnable.GetSpeed() * Time.deltaTime
+            );
 
-        Vector3 newPosition = transform.position;
+            Vector3 newPosition = transform.position;
 
-        Vector3 direction = (oldPosition - newPosition).normalized;
-        transform.rotation = Quaternion.LookRotation(direction);
+            Vector3 direction = (oldPosition - newPosition).normalized;
+            transform.rotation = Quaternion.LookRotation(direction);
+        }
     }
 }
