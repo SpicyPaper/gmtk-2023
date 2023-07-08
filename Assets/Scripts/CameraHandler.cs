@@ -5,13 +5,21 @@ using UnityEngine;
 public class CameraHandler : MonoBehaviour
 {
 
-    [SerializeField] private float zoomSpeed = 100.0f;
+    [SerializeField] private float movementSpeed = 500.0f;
 
-    [SerializeField] private float minY = 10.0f;
+    [SerializeField] private Vector3 targetPosition = Vector3.zero;
 
-    [SerializeField] private float maxY = 100.0f;
+    private Vector3 initialPosition;
 
-    
+    private float distanceFromTarget;
+
+
+    void Start()
+    {
+        initialPosition = transform.position;
+        distanceFromTarget = Vector3.Distance(initialPosition, targetPosition);
+    }
+
 
     // Update is called once per frame
     void FixedUpdate()
@@ -19,14 +27,11 @@ public class CameraHandler : MonoBehaviour
         /* use mouse scroll to zoom in or out */
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         /* get the current camera position */
-        Vector3 position = Camera.main.transform.position;
-        /* change the z position of the camera */
-        position.y -= scroll * zoomSpeed * Time.deltaTime;
-        /* set the camera position to the new position */
+        MoveCamera(scroll * movementSpeed * Time.fixedDeltaTime);
+    }
 
-        position.y = Mathf.Clamp(position.y, minY, maxY);
 
-        Camera.main.transform.position = position;
-
+    private void MoveCamera(float deltaMovement){
+        Camera.main.transform.RotateAround(targetPosition, Vector3.up, deltaMovement);
     }
 }
