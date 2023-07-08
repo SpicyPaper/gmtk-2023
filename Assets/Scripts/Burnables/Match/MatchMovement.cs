@@ -9,7 +9,7 @@ public class MatchMovement : BurnableMovement
 
     private float currentTimeInZig = 0.0f;
 
-    private Vector3 zigAbsDelta = new Vector3(10, 0, 10);
+    [SerializeField] private float zigAngle = 160f;
 
     
     void FixedUpdate()
@@ -19,13 +19,18 @@ public class MatchMovement : BurnableMovement
         if (currentTimeInZig > timePerZig)
         {
             currentTimeInZig = 0.0f;
-            zigAbsDelta = -zigAbsDelta;
+            zigAngle = -zigAngle;
         }
+
+
+        Vector3 unnormalizedDistance = targetPosition - transform.position;
 
         /* zig zag please */
         transform.position = Vector3.MoveTowards(
             transform.position,
-            targetPosition + zigAbsDelta,
+            // target position is a cominbination of the acutal target position and the zig angle,
+            // which is an angle in the xz plane
+            Quaternion.Euler(0, zigAngle, 0) * unnormalizedDistance,
             burnable.GetSpeed() * Time.deltaTime
         );
 
