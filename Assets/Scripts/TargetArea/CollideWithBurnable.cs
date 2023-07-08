@@ -5,10 +5,13 @@ using UnityEngine;
 public class CollideWithBurnable : MonoBehaviour
 {
     private List<Burnable> collisionList;
+
+    private List<OilSpill> oilSpillList;
     // Start is called before the first frame update
     void Start()
     {
         collisionList = new List<Burnable>();
+        oilSpillList = new List<OilSpill>();
     }
 
 
@@ -17,35 +20,71 @@ public class CollideWithBurnable : MonoBehaviour
     {
     }
 
-    void OnMouseDown(){
+    void OnMouseDown()
+    {
         Debug.Log("Mouse clicked.");
-        Debug.Log(collisionList.Count);
+        handleBurnableClicked();
+        handleOilSpillClicked();
+    }
+
+    private void handleBurnableClicked()
+    {
         List<Burnable> toRemove = new List<Burnable>();
-        for (int i = 0 ; i < collisionList.Count; i++){
+        for (int i = 0; i < collisionList.Count; i++)
+        {
             Burnable burnable = collisionList[i];
-            if (burnable == null){
+            if (burnable == null)
+            {
                 toRemove.Add(burnable);
                 continue;
             }
             bool isDead = GameController.instance.BurnableClicked(burnable);
-            if (isDead){
+            if (isDead)
+            {
                 toRemove.Add(burnable);
             }
         }
-        for(int i=0;i<toRemove.Count;i++){
+        for (int i = 0; i < toRemove.Count; i++)
+        {
             collisionList.Remove(toRemove[i]);
         }
+    }
+
+    private void handleOilSpillClicked(){
+
+        List<OilSpill> toRemove = new List<OilSpill>();
+        for (int i = 0; i < oilSpillList.Count; i++)
+        {
+            OilSpill oilSpill = oilSpillList[i];
+            if (oilSpill == null)
+            {
+                toRemove.Add(oilSpill);
+                continue;
+            }
+            // destroy oil spill parent
+            Destroy(oilSpill.transform.parent.gameObject);
+        }
+        for (int i = 0; i < toRemove.Count; i++)
+        {
+            oilSpillList.Remove(toRemove[i]);
+        }        
     }
 
     void OnTriggerEnter(Collider other){
         if (other.gameObject.tag == "Burnable"){
             collisionList.Add(other.GetComponent<Burnable>());
         }
+        else if (other.gameObject.tag == "Oil Spill"){
+            oilSpillList.Add(other.GetComponent<OilSpill>());
+        }
     }
 
     void OnTriggerExit(Collider other){
         if (other.gameObject.tag == "Burnable"){
             collisionList.Remove(other.GetComponent<Burnable>());
+        }
+        else if (other.gameObject.tag == "Oil Spill"){
+            oilSpillList.Remove(other.GetComponent<OilSpill>());
         }
     }
 }
