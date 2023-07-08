@@ -46,6 +46,7 @@ public class GameController : MonoBehaviour
         Debug.Log("Burnable reached fire");
         FireController.instance.addBurnPower(burnable.GetBurnPower());
         Destroy(burnable.gameObject);
+        // Destroy(burnable.transform.parent.gameObject);
     }
 
 }

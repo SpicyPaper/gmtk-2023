@@ -39,4 +39,8 @@ public class Burnable : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void OnDestroy(){
+        Destroy(gameObject.transform.parent.gameObject);
+    }
 }

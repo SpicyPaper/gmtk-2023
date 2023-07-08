@@ -44,11 +44,9 @@ public class Spawner : MonoBehaviour
 
     private Vector3 GetRandomSpawnPosition()
     {
-        
         float randomAngle = Random.Range(0.0f, 360.0f);
         Vector3 randomDirection = Quaternion.Euler(0.0f, randomAngle, 0.0f) * Vector3.forward;
         Vector3 spawnPosition = spawnCenter + randomDirection * spawnDistance;
         return spawnPosition;
-
     }
 }
