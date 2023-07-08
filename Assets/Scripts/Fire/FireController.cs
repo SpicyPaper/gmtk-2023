@@ -11,6 +11,12 @@ public class FireController : MonoBehaviour
     [SerializeField]
     private float burnPowerDecay = 1f;
 
+    [SerializeField] private Transform redFire;
+
+    [SerializeField] private Transform oragenFire;
+
+    [SerializeField] private Transform yellowFire;
+
     private float initialScale;
 
     private float burnPower;
@@ -21,7 +27,7 @@ public class FireController : MonoBehaviour
     public static FireController instance = null;
 
     public float intensityChangeFrequency = 2;
-    private Light fireLight;
+    [SerializeField]private Light fireLight;
     void Start()
     {
         if (instance == null)
@@ -29,9 +35,9 @@ public class FireController : MonoBehaviour
             instance = this;
             initialPosition = transform.position;
             burnPowerDecay = -Mathf.Abs(burnPowerDecay);
-            initialScale = transform.localScale.x;
+            initialScale = redFire.localScale.x;
             burnPower = initialBurnPower;
-            fireLight = GameObject.Find("FireLight").GetComponent<Light>();
+            /* fireLight = GameObject.Find("FireLight").GetComponent<Light>(); */
             setFireScale(initialScale);
         }
         else if (instance != this)
@@ -43,9 +49,12 @@ public class FireController : MonoBehaviour
     // Update is called once per frame
     void setFireScale(float scale)
     {
-        transform.localScale = new Vector3(scale, scale, scale);
-        float yTarget = (transform.localScale.y) / 2.0f;
-        transform.Translate(0, (yTarget - transform.position.y), 0);
+        redFire.localScale = new Vector3(scale, scale, scale);
+        yellowFire.localScale = new Vector3(scale, scale, scale);
+        oragenFire.localScale = new Vector3(scale, scale, scale);
+
+        //float yTarget = (transform.localScale.y) / 2.0f;
+        //transform.Translate(0, (yTarget - transform.position.y), 0);
         fireLight.range = scale*30;
     }
 

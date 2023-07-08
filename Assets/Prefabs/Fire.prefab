@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1584048225623855561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3619642880071877531}
@@ -4823,9 +4823,11 @@ GameObject:
   - component: {fileID: 3619642880071877531}
   - component: {fileID: 3276080056460355000}
   - component: {fileID: 6569149569080505951}
+  - component: {fileID: 2230927939383238990}
+  - component: {fileID: 1513364331589221571}
   m_Layer: 0
   m_Name: CartoonFire
-  m_TagString: Untagged
+  m_TagString: Fire
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4838,13 +4840,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4035409943932172490}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.165, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3958470734420205156}
   - {fileID: 4247593912052701364}
   - {fileID: 7883516808342219386}
+  - {fileID: 6861589344945060825}
   m_Father: {fileID: 4178470861915768110}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9627,6 +9630,38 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &2230927939383238990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4035409943932172490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe445da27dcc9c18e81f4c5fa1818dc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialBurnPower: 100
+  burnPowerDecay: 1
+  redFire: {fileID: 3958470734420205156}
+  oragenFire: {fileID: 4247593912052701364}
+  yellowFire: {fileID: 7883516808342219386}
+  intensityChangeFrequency: 2
+  fireLight: {fileID: 1864346509497306247}
+--- !u!65 &1513364331589221571
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4035409943932172490}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.42, y: 0.9211248, z: 1.0513566}
+  m_Center: {x: 0, y: 0.24943763, z: -0.069599}
 --- !u!1 &4178470861915768106
 GameObject:
   m_ObjectHideFlags: 0
@@ -9679,7 +9714,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6055324315263417992
 Transform:
   m_ObjectHideFlags: 0
@@ -9691,8 +9726,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6861589344945060825}
+  m_Children: []
   m_Father: {fileID: 4178470861915768110}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9773,7 +9807,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialBurnPower: 100
   burnPowerDecay: 3
+  redFire: {fileID: 0}
+  oragenFire: {fileID: 0}
+  yellowFire: {fileID: 0}
   intensityChangeFrequency: 2
+  fireLight: {fileID: 0}
 --- !u!1 &7322348848256003203
 GameObject:
   m_ObjectHideFlags: 0
@@ -9801,7 +9839,7 @@ Transform:
   m_GameObject: {fileID: 7322348848256003203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3619642880071877531}
@@ -14613,8 +14651,8 @@ Transform:
   m_GameObject: {fileID: 8634491047654299387}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3619642880071877531}
   m_RootOrder: 0
@@ -19423,13 +19461,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8852361261112077122}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 6055324315263417992}
-  m_RootOrder: 0
+  m_Father: {fileID: 3619642880071877531}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &1864346509497306247
 Light:
