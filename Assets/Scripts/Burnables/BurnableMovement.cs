@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class BurnableMovement : MonoBehaviour
 {
-    private Burnable burnable;
+    protected Burnable burnable;
 
     [SerializeField]
-    private Vector3 targetPosition = new Vector3(0, 0, 0);
+    protected Vector3 targetPosition = new Vector3(0, 0, 0);
 
     private Animator animator;
 
@@ -20,9 +20,14 @@ public class BurnableMovement : MonoBehaviour
         Physics.IgnoreLayerCollision(8, 8);
         RotateToCenter();
         Animate();
+        ChildMovementSetup();
     }
 
-    void RotateToCenter()
+    protected void ChildMovementSetup(){
+
+    }
+
+    protected void RotateToCenter()
     {
         Vector3 direction = (transform.position - targetPosition).normalized;
         transform.rotation = Quaternion.LookRotation(direction);
