@@ -40,4 +40,12 @@ public class GameController : MonoBehaviour
         burnable.TakeDamage(1);
     }
 
+
+    public void BurnableReachedFire(Burnable burnable)
+    {
+        Debug.Log("Burnable reached fire");
+        FireController.instance.addBurnPower(burnable.GetBurnPower());
+        Destroy(burnable.gameObject);
+    }
+
 }

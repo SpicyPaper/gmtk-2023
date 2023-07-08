@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   burnablePrefab: {fileID: 8467199602045135719, guid: 96eaa56a3a3efe8aaa8f419a131728f5, type: 3}
-  spawnInterval: 0.3
+  spawnInterval: 1
   spawnCenter: {x: 0, y: 0, z: 0}
   spawnDistance: 40
 --- !u!114 &6944105111475300139
@@ -75,3 +75,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   zoomSpeed: 1000
+  minY: 10
+  maxY: 100
