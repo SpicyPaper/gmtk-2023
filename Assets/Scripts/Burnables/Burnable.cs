@@ -14,9 +14,13 @@ public class Burnable : MonoBehaviour
 
     private int health;
 
+    private Animator animator;
+
     void Start()
     {
         health = initialHealth;
+
+        animator = GetComponent<Animator>();
     }
 
     public float GetBurnPower()
@@ -37,7 +41,17 @@ public class Burnable : MonoBehaviour
         bool isDead = health <= 0;
         if (isDead)
         {
-            Destroy(gameObject);
+            if (animator != null)
+            {
+                animator.speed = 2;
+                animator.SetTrigger("OnDie");
+                speed = 0;
+                Destroy(gameObject, 1.5f);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
         return isDead;
     }
