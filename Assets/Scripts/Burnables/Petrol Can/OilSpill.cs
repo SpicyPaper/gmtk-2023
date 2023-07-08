@@ -10,7 +10,6 @@ public class OilSpill : MonoBehaviour
 
     [SerializeField] private float BurnDurationMultiplier = 1.0f;
     
-
     [SerializeField] private float propagationDelay = 0.025f;
 
     private float spillScale;
@@ -40,16 +39,11 @@ public class OilSpill : MonoBehaviour
             return;
         }
 
-        Debug.Log("OilSpillController.SetOnFire()");
-
         // enable firePrefab
         firePrefab.SetActive(true);
-        Debug.Log("firePrefab.activeSelf: " + firePrefab.activeSelf);
 
         isBurning = true;
         
-
-        // TODO set fire to neighbor oil spills
         setFireToNeighbours();
 
     }
@@ -63,8 +57,7 @@ public class OilSpill : MonoBehaviour
                 OilSpill oilSpill = collider.gameObject.GetComponent<OilSpill>();
                 if (oilSpill != null)
                 {
-                    // invoke SetOnFire() on oilSpill with delay
-                    Debug.Log("Delaying oilSpill.SetOnFire() by " + propagationDelay + " seconds.");                    
+                    // invoke SetOnFire() on oilSpill with delay                 
                     oilSpill.Invoke("SetOnFire", propagationDelay);
                 }
             }
@@ -95,7 +88,6 @@ public class OilSpill : MonoBehaviour
     {
         if (isBurning)
         {
-        
             burnTimer += Time.deltaTime;
             if (burnTimer >= burnDuration)
             {
@@ -106,7 +98,6 @@ public class OilSpill : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("OilSpill.OnCollisionEnter()");
         if (collision.gameObject.CompareTag("Fire"))
         {
             SetOnFire();
@@ -115,7 +106,6 @@ public class OilSpill : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OilSpill.OnTriggerEnter()");
         if (other.gameObject.CompareTag("Fire"))
         {
             SetOnFire();

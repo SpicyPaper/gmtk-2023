@@ -8,10 +8,11 @@ public class SparkController : MonoBehaviour
     void Start()
     {
         Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
+        float maxDistance = 12;
         rigidbody.velocity = new Vector3(
-            Random.Range(-10,10),
-            Random.Range(10,20),
-            Random.Range(-10,10)
+            Random.Range(-maxDistance, maxDistance),
+            Random.Range(10, maxDistance),
+            Random.Range(-maxDistance, maxDistance)
         );
     }
 
@@ -21,5 +22,13 @@ public class SparkController : MonoBehaviour
         if (gameObject.transform.position.y < -20){
             Destroy(gameObject);
         }
+    }
+
+    void OnTriggerEnter(Collider other){
+        if (other.gameObject.CompareTag("Oil Spill"))
+        {
+            other.GetComponent<OilSpill>().SetOnFire();
+        }
+
     }
 }
