@@ -25,6 +25,7 @@ public class CollideWithBurnable : MonoBehaviour
         Debug.Log("Mouse clicked.");
         handleBurnableClicked();
         handleOilSpillClicked();
+        SoundHandler.Instance.PlaySound(SoundHandler.SoundType.CLICK);
     }
 
     private void handleBurnableClicked()

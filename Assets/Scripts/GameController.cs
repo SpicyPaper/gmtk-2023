@@ -11,14 +11,14 @@ public class GameController : MonoBehaviour
     public static GameState gameState = GameState.Level3;
 
 
-
     // Start is called before the first frame update
     void Start()
     {
         if (instance == null)
         {
             instance = this;
-
+            SoundHandler.Instance.PlaySound(SoundHandler.SoundType.MAIN_MUSIC);
+            SoundHandler.Instance.PlaySound(SoundHandler.SoundType.FIRE);
         }
         else if (instance != this)
         {
