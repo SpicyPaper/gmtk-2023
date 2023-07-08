@@ -17,6 +17,16 @@ public class FireController : MonoBehaviour
 
     private Vector3 initialPosition;
 
+
+    [SerializeField]
+    private Transform redFire;
+
+    [SerializeField]
+    private Transform orangeFire;
+
+    [SerializeField]
+    private Transform YellowFire;
+
     /* create a singleton */
     public static FireController instance = null;
 
@@ -27,7 +37,7 @@ public class FireController : MonoBehaviour
             instance = this;
             initialPosition = transform.position;
             burnPowerDecay = -Mathf.Abs(burnPowerDecay);
-            initialScale = transform.localScale.x;
+            initialScale = redFire.localScale.x;
             burnPower = initialBurnPower;
             setFireScale(initialScale);
         }
@@ -40,9 +50,14 @@ public class FireController : MonoBehaviour
     // Update is called once per frame
     void setFireScale(float scale)
     {
-        transform.localScale = new Vector3(scale, scale, scale);
-        float yTarget = (transform.localScale.y) / 2.0f;
-        transform.Translate(0, (yTarget - transform.position.y), 0);
+
+        redFire.localScale = new Vector3(scale, scale, scale);
+        orangeFire.localScale = new Vector3(scale, scale, scale);
+        YellowFire.localScale = new Vector3(scale, scale, scale);
+
+        //transform.localScale = new Vector3(scale, scale, scale);
+        //float yTarget = (transform.localScale.y) / 2.0f;
+        //transform.Translate(0, (yTarget - transform.position.y), 0);
     }
 
     public void addBurnPower(float burnPower)
