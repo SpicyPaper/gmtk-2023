@@ -9,28 +9,26 @@ public class MatchMovement : BurnableMovement
 
     private float currentTimeInZig = 0.0f;
 
-    private Vector3 zigDirection = new Vector3(0, 0, 0);
-
-
+    private Vector3 zigAbsDelta = new Vector3(10, 0, 10);
 
     
     void FixedUpdate()
     {
+        currentTimeInZig += Time.deltaTime;
+
+        if (currentTimeInZig > timePerZig)
+        {
+            currentTimeInZig = 0.0f;
+            zigAbsDelta = -zigAbsDelta;
+        }
+
         /* zig zag please */
         transform.position = Vector3.MoveTowards(
             transform.position,
-            targetPosition,
+            targetPosition + zigAbsDelta,
             burnable.GetSpeed() * Time.deltaTime
         );
 
-        if (transform.position == targetPosition)
-        {
-            targetPosition = new Vector3(
-                Random.Range(-5.0f, 5.0f),
-                Random.Range(-5.0f, 5.0f),
-                Random.Range(-5.0f, 5.0f)
-            );
-        }
     }
 
 }
