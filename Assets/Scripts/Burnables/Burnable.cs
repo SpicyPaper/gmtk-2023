@@ -29,15 +29,17 @@ public class Burnable : MonoBehaviour
         return speed;
     }
 
-    public void TakeDamage(int damage)
+    public bool TakeDamage(int damage)
     {
         health -= damage;
 
         /* if health is below 0 the gameobject will be destroyed */
-        if (health <= 0)
+        bool isDead = health <= 0;
+        if (isDead)
         {
             Destroy(gameObject);
         }
+        return isDead;
     }
 
     public void OnDestroy(){

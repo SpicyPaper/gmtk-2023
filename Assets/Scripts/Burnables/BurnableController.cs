@@ -12,14 +12,4 @@ public class BurnableController : MonoBehaviour
 
     // Update is called once per frame
     void Update() { }
-
-    void OnMouseDown()
-    {
-        Debug.Log("Clicked on " + gameObject.name);
-        /* get the GameController instance it is a global singleton*/
-        GameController gameController = GameController.instance;
-        /* call the BurnableClicked method on the GameController instance */
-        gameController.BurnableClicked(burnable);
-
-    }
 }

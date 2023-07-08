@@ -27,17 +27,19 @@ public class GameController : MonoBehaviour
     }
 
 
-    public void BurnableClicked(Burnable burnable)
+    public bool BurnableClicked(Burnable burnable)
     {
         Debug.Log("Burnable clicked from GameController");
         Debug.Log("Burnable power: " + burnable.GetBurnPower());
-        HitBurnable(burnable);
+        bool isBurnableDead = HitBurnable(burnable);
+
+        return isBurnableDead;
     }
 
 
-    private void HitBurnable(Burnable burnable)
+    private bool HitBurnable(Burnable burnable)
     {
-        burnable.TakeDamage(1);
+        return burnable.TakeDamage(1);
     }
 
 
