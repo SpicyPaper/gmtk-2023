@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class SparkSpawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject sparkPrefab;
+    [SerializeField] private GameObject sparkPrefab;
 
-    [SerializeField]
-    private float spawnInterval = 5.0f;
+    [SerializeField] private float spawnInterval = 5.0f;
     
     private float nextSpawnInterval = 0.0f;
     private float lastSpawnTime = 0.0f;
@@ -33,6 +31,5 @@ public class SparkSpawner : MonoBehaviour
 
     private void SpawnSpark(){
         GameObject spark = Instantiate(sparkPrefab, origin, Quaternion.identity);
-        Debug.Log("Spark Created.");
     }
 }
