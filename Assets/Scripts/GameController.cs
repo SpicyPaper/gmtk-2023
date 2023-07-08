@@ -8,6 +8,8 @@ public class GameController : MonoBehaviour
     /* TODO: create a singleton to handle game logic */
     public static GameController instance = null;
 
+    public static GameState gameState = GameState.Level1;
+
 
 
     // Start is called before the first frame update
@@ -23,7 +25,7 @@ public class GameController : MonoBehaviour
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-        
+
     }
 
 

@@ -499,6 +499,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5941689576546311768, guid: a9fc07d53cc2774d49b19a41569e0ca1, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5941689576546311768, guid: a9fc07d53cc2774d49b19a41569e0ca1, type: 3}
+      propertyPath: sparkPrefab
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9fc07d53cc2774d49b19a41569e0ca1, type: 3}
 --- !u!1001 &2733542387848518767
@@ -653,8 +661,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6944105111475300139, guid: f11e93561a55556cc8922bd72f3b1e36, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f11e93561a55556cc8922bd72f3b1e36, type: 3}
 --- !u!1001 &8608714779461021405
 PrefabInstance:
