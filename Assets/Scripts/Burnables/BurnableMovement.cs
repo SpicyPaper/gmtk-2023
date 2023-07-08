@@ -9,7 +9,7 @@ public class BurnableMovement : MonoBehaviour
     [SerializeField]
     protected Vector3 targetPosition = new Vector3(0, 0, 0);
 
-    private Animator animator;
+    protected Animator animator;
 
     // Start is called before the first frame update
     void Start()

@@ -114,6 +114,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
+  timePerZig: 3
+  zigAngle: 160
 --- !u!54 &4880726547854395491
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,9 +144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a064d9aa274de2cd9afbab06a30ed4f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burnPower: 1
+  burnPower: 10
   initialHealth: 1
-  speed: 8
+  speed: 2
 --- !u!114 &78334462253427550
 MonoBehaviour:
   m_ObjectHideFlags: 0
