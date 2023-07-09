@@ -120,7 +120,8 @@ public class IntroHandler : MonoBehaviour
                 }
                 break;
             case 90:
-                fireController.SetMinBurnPower(30);
+                fireController.SetBurnPowerDecay(10);
+                fireController.SetMinBurnPower(10);
                 if ((totalPerc > 0.3f && simpleCoalStep == 2) ||
                     (totalPerc > 0.52f && simpleCoalStep == 3) ||
                     (totalPerc > 0.7f && simpleCoalStep == 4))
