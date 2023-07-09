@@ -1080,7 +1080,7 @@ PrefabInstance:
       objectReference: {fileID: 1018411656}
     - target: {fileID: 4995501619893896952, guid: c08d35a24454abe4b85cf1797ae84321, type: 3}
       propertyPath: BurnPowerThreshold
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4995501619893896952, guid: c08d35a24454abe4b85cf1797ae84321, type: 3}
       propertyPath: initialBurnablePrefab
