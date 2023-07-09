@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SparkController : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
@@ -16,9 +15,11 @@ public class SparkController : MonoBehaviour
         );
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (gameObject.transform.position.y < 0){
+            //Spawn oil on fire;
+        }
         if (gameObject.transform.position.y < -20){
             Destroy(gameObject);
         }
