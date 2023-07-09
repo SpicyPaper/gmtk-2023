@@ -6,7 +6,7 @@ public class FireController : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-    private float initialBurnPower = 100.0f;
+    private float initialBurnPower = 50f;
 
     [SerializeField]
     private float burnPowerDecay = 1f;
@@ -55,7 +55,11 @@ public class FireController : MonoBehaviour
 
         //float yTarget = (transform.localScale.y) / 2.0f;
         //transform.Translate(0, (yTarget - transform.position.y), 0);
-        fireLight.range = scale*30;
+        fireLight.range = scale*15;
+
+        redFire.GetComponent<ParticleSystem>().startSize = scale/2;
+        yellowFire.GetComponent<ParticleSystem>().startSize = scale / 2 * 0.25f;
+        oragenFire.GetComponent<ParticleSystem>().startSize = scale / 2 * 0.5f;
     }
 
     public void addBurnPower(float burnPower)
