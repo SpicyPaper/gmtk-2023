@@ -196,12 +196,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2826156937119192283}
+  - component: {fileID: 7593945980023725996}
+  - component: {fileID: 238887713148449503}
+  - component: {fileID: 5743942294306781930}
   - component: {fileID: 3440424862824690126}
   - component: {fileID: 8690764182371274498}
   - component: {fileID: 1554256005145187392}
-  - component: {fileID: 5743942294306781930}
-  - component: {fileID: 7593945980023725996}
-  - component: {fileID: 238887713148449503}
   m_Layer: 8
   m_Name: Petrol Can Visual
   m_TagString: Burnable
@@ -228,6 +228,51 @@ Transform:
   m_Father: {fileID: 8624644263792591866}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7593945980023725996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3202998791088016993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a064d9aa274de2cd9afbab06a30ed4f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burnPower: 50
+  initialHealth: 1
+  speed: 5
+  soundType: 3
+--- !u!114 &238887713148449503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3202998791088016993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af193b8fdfcc8a889250b0fdf784d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oilSpillPrefab: {fileID: 1332367696291378478, guid: 0ea6666dbdec3c07ea8534fe58f108d8, type: 3}
+--- !u!114 &5743942294306781930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3202998791088016993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39e47110e01588b48a5c9cecf315139a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosition: {x: 0, y: 0, z: 0}
+  angleAtStep: 1
+  oilSpillPrefab: {fileID: 1332367696291378478, guid: 0ea6666dbdec3c07ea8534fe58f108d8, type: 3}
+  oilSpillInterval: 0.0001
 --- !u!95 &3440424862824690126
 Animator:
   serializedVersion: 5
@@ -278,51 +323,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 3.3386884, z: 2.1733284}
   m_Center: {x: 0, y: 1.6088395, z: 0.0013980865}
---- !u!114 &5743942294306781930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3202998791088016993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39e47110e01588b48a5c9cecf315139a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetPosition: {x: 0, y: 0, z: 0}
-  angleAtStep: 1
-  oilSpillPrefab: {fileID: 1332367696291378478, guid: 0ea6666dbdec3c07ea8534fe58f108d8, type: 3}
-  oilSpillInterval: 0.0001
---- !u!114 &7593945980023725996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3202998791088016993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a064d9aa274de2cd9afbab06a30ed4f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  burnPower: 5
-  initialHealth: 1
-  speed: 5
-  soundType: 3
---- !u!114 &238887713148449503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3202998791088016993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4af193b8fdfcc8a889250b0fdf784d62, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  oilSpillPrefab: {fileID: 1332367696291378478, guid: 0ea6666dbdec3c07ea8534fe58f108d8, type: 3}
 --- !u!1 &3293777242385930954
 GameObject:
   m_ObjectHideFlags: 0

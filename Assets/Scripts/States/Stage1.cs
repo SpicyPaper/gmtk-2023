@@ -12,7 +12,7 @@ public class Stage1 : StageState
 
     public override void Execute()
     {
-        if (fireController.BurnPower <= gameController.BurnPowerThreshold)
+        if (levelStarted && fireController.BurnPower <= gameController.BurnPowerThreshold)
         {
             StageState nextState = new Stage2(gameController, gameController.BurnablePrefabs[1]);
             gameController.ChangeState(new Shop(gameController, nextState));

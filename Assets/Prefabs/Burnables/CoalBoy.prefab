@@ -222,11 +222,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2629573504837343096}
-  - component: {fileID: 4179828302496630524}
   - component: {fileID: 2553339294874571065}
-  - component: {fileID: 2648893239150399991}
   - component: {fileID: 2623628268176813267}
   - component: {fileID: 5971638755386736617}
+  - component: {fileID: 4179828302496630524}
+  - component: {fileID: 2648893239150399991}
   - component: {fileID: 7039155724780665160}
   m_Layer: 8
   m_Name: choalboy
@@ -242,7 +242,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3401853273083973058}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -253,7 +253,49 @@ Transform:
   - {fileID: 6070746186801292917}
   m_Father: {fileID: 3705780444683636129}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &2553339294874571065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3401853273083973058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a064d9aa274de2cd9afbab06a30ed4f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  burnPower: 10
+  initialHealth: 1
+  speed: 3
+  soundType: 0
+--- !u!114 &2623628268176813267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3401853273083973058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0175a488fb8152a4cbfd489cd507a150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coalBoyBody: {fileID: 1949742741065070065}
+--- !u!114 &5971638755386736617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3401853273083973058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d22f931df211e2b4c9c5b00049ca292b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosition: {x: 0, y: 0, z: 0}
 --- !u!95 &4179828302496630524
 Animator:
   serializedVersion: 5
@@ -275,22 +317,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2553339294874571065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3401853273083973058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a064d9aa274de2cd9afbab06a30ed4f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  burnPower: 5
-  initialHealth: 1
-  speed: 3
-  soundType: 0
 --- !u!65 &2648893239150399991
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -302,33 +328,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.559963, y: 2.5699675, z: 3.6257286}
-  m_Center: {x: -0.2799815, y: 0.784984, z: 1.8964877}
---- !u!114 &2623628268176813267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3401853273083973058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0175a488fb8152a4cbfd489cd507a150, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5971638755386736617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3401853273083973058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d22f931df211e2b4c9c5b00049ca292b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetPosition: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.559963, y: 1.6131546, z: 3.6257286}
+  m_Center: {x: -0.2799815, y: 1.2259444, z: 1.8964877}
 --- !u!54 &7039155724780665160
 Rigidbody:
   m_ObjectHideFlags: 0

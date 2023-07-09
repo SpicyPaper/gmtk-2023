@@ -3,42 +3,7 @@ guid: 85a5326b0c8204e42aa80b4c382f1094
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Box
-    second: {fileID: 2100000, guid: 3a28db6bf9be3af4db657841791c430d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Burn
-    second: {fileID: 2100000, guid: 76b3bab199a6b3b408ba5697ca6b7f82, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Cardboard
-    second: {fileID: 2100000, guid: 3dc6fb78c6a93034c9b1796309991b24, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Face
-    second: {fileID: 2100000, guid: 526c0eeb41c56e64a8d8a774db61b9fd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Limbs
-    second: {fileID: 2100000, guid: fef4b68749c94c24cb339b677a144031, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Limbs.001
-    second: {fileID: 2100000, guid: bed60067202dbed4f930801f7da36d55, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood
-    second: {fileID: 2100000, guid: 33098019164bfb24db5501253962c380, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

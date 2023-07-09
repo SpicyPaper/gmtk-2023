@@ -11,6 +11,8 @@ public class StageState : State
 
     GameObject burnable;
 
+    protected bool levelStarted = false;
+
     public StageState(GameController gameController, GameObject newBurnable) : base(gameController)
     {
         burnable = newBurnable;
@@ -59,5 +61,6 @@ public class StageState : State
         Debug.Log(currentLevel);
 
         gameController.SetLevel(currentLevel);
+        levelStarted = true;
     }
 }

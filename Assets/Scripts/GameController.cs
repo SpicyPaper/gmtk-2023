@@ -22,6 +22,13 @@ public class GameController : MonoBehaviour
     public float WaitTimeBeforeLevel3Start = 3.0f;
     public float WaitTimeBeforeLevel4Start = 3.0f;
 
+    [Header("Upgrade Config")]
+    public float UpgradeClickCooldownModifier = 0.2f;
+    public float UpgradeRangeModifier = 1.2f;
+    public float UpgradePuddleModifier = 1.2f;
+
+    [SerializeField] private float currentPuddleSize = 5.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -77,7 +84,7 @@ public class GameController : MonoBehaviour
 
     public void BurnableReachedFire(Burnable burnable)
     {
-        FireController.instance.addBurnPower(burnable.GetBurnPower());
+        FireController.instance.AddBurnPower(burnable.GetBurnPower());
         Destroy(burnable.gameObject);
         // Destroy(burnable.transform.parent.gameObject);
     }
@@ -85,6 +92,7 @@ public class GameController : MonoBehaviour
     public void UpgradeClick()
     {
         // TODO: Upgrade click
+
         ((Shop)currentState).CloseShop();
     }
 
@@ -98,6 +106,17 @@ public class GameController : MonoBehaviour
     {
         // TODO: Upgrade puddle
         ((Shop)currentState).CloseShop();
+    }
+
+
+    public void SetPuddleSize(float size)
+    {
+        currentPuddleSize = size;
+    }
+
+    public float GetPuddleSize()
+    {
+        return currentPuddleSize;
     }
 
 }
