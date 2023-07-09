@@ -55,6 +55,11 @@ public class MatchMovement : BurnableMovement
 
     }
 
+    public void TakeMatch()
+    {
+        match.SetActive(true);
+    }
+
     public void ThrowMatch()
     {
         if (thrownMatch)
@@ -62,8 +67,12 @@ public class MatchMovement : BurnableMovement
             Destroy(thrownMatch);
         }
 
+        match.SetActive(false);
+
         thrownMatch = Instantiate( match, transform.position, Quaternion.identity, null);
+        thrownMatch.SetActive(true);
         thrownMatch.transform.localScale *= 100;
+        thrownMatch.transform.rotation = match.transform.rotation;
         Rigidbody rb = thrownMatch.AddComponent<Rigidbody>();
         Vector3 randomVector = new Vector3(Random.Range(-1f, 1f), 1f, Random.Range(-1f, 1f)).normalized;
         rb.AddForce(randomVector * 1000);
