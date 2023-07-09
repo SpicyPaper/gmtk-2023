@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundHandler : MonoBehaviour
 {
@@ -88,7 +89,7 @@ public class SoundHandler : MonoBehaviour
         }
     }
 
-    public void PlaySound(SoundType soundType)
+    public AudioSource PlaySound(SoundType soundType)
     {
         GameObject audioSourceObject = Instantiate(audioSourceModel, audioSourceParent.transform);
         AudioSource audioSource = audioSourceObject.GetComponent<AudioSource>();
@@ -141,5 +142,7 @@ public class SoundHandler : MonoBehaviour
         audioSource.loop = loop;
 
         audioSourceObject.GetComponent<AudioSourceManager>().Play();
+
+        return audioSource;
     }
 }
