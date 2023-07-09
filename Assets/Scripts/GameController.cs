@@ -37,6 +37,10 @@ public class GameController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            FireController.instance.SetBurnPowerDecay(0);
+            FireController.instance.SetBurnPower(30);
+            FireController.instance.SetMinBurnPower(9);
+            FireController.instance.SetMaxBurnPower(80);
         }
         else if (instance != this)
         {
@@ -44,9 +48,9 @@ public class GameController : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        State nextState = new Stage1(this, BurnablePrefabs[0]);
+        State nextState = new Stage0(this, BurnablePrefabs[0]);
 
-        ChangeState(new Tutorial(this, nextState));
+        ChangeState(nextState);
     }
 
     void Update()
