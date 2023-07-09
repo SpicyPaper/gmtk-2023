@@ -300,7 +300,7 @@ BoxCollider:
   m_GameObject: {fileID: 3401853273083973058}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1.559963, y: 2.5699675, z: 3.6257286}
   m_Center: {x: -0.2799815, y: 0.784984, z: 1.8964877}
@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0175a488fb8152a4cbfd489cd507a150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coalBoyBody: {fileID: 1949742741065070065}
 --- !u!114 &5971638755386736617
 MonoBehaviour:
   m_ObjectHideFlags: 0

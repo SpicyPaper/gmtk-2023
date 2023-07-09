@@ -21,5 +21,7 @@ public class BurnableCollider : MonoBehaviour
         {
             GameController.instance.BurnableReachedFire(burnable);
         }
+
+
     }
 }

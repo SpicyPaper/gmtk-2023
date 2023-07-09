@@ -12,6 +12,8 @@ public class OilSpill : MonoBehaviour
     
     [SerializeField] private float propagationDelay = 0.025f;
 
+    [SerializeField] private bool startOnFire = false;
+
     private float spillScale;
 
     private float burnDuration;
@@ -27,7 +29,7 @@ public class OilSpill : MonoBehaviour
         spillScale = transform.localScale.x;
         burnDuration = spillScale * BurnDurationMultiplier;
 
-        if(anyNeighboursOnFire()){
+        if(startOnFire || anyNeighboursOnFire()){
             SetOnFire();
         }
         
