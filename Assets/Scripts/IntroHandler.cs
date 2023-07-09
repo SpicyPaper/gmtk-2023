@@ -8,6 +8,7 @@ public class IntroHandler : MonoBehaviour
     [SerializeField] private FireController fireController;
     [SerializeField] private Camera cam;
     [SerializeField] private TMP_Text starveText;
+    [SerializeField] private TMP_Text startText;
 
     [SerializeField] private List<float> elapsedTimes;
 
@@ -15,8 +16,9 @@ public class IntroHandler : MonoBehaviour
 
     private float elapsed;
 
-    private float camTranslate = 70;
+    private float camTranslateForward = 70;
     private float initFireVolume = 0.2f;
+    private float lookat = 1.3f;
 
     private bool onlyOnce;
 
@@ -25,10 +27,10 @@ public class IntroHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        fireController.addBurnPower(-1000);
-        fireController.addBurnPower(0);
+        fireController.SetBurnPower(0);
         starveText.color = new Color(1, 1, 1, 0);
-        cam.transform.LookAt(Vector3.up * 1);
+        startText.gameObject.SetActive(false);
+        cam.transform.LookAt(Vector3.up * lookat);
     }
 
     // Update is called once per frame
@@ -55,23 +57,29 @@ public class IntroHandler : MonoBehaviour
                 {
                     SoundHandler.Instance.PlaySound(SoundHandler.SoundType.CLICK);
                     audioSource = SoundHandler.Instance.PlaySound(SoundHandler.SoundType.FIRE);
-                    fireController.addBurnPower(5);
+                    fireController.SetBurnPower(30);
+                    fireController.SetBurnPowerDecay(0);
+                    SoundHandler.Instance.SetVolume(SoundHandler.SoundType.FIRE, audioSource, initFireVolume);
                     onlyOnce = false;
                 }
-
-                //fireController.burnPower = 8;
-
-                fireController.addBurnPower(40 * Mathf.Lerp(0, 1, perc));
-                audioSource.volume = initFireVolume;
                 break;
             case 20:
-                cam.transform.Translate(camTranslate * perc * Vector3.forward, Space.Self);
-
-                audioSource.volume = Mathf.Lerp(initFireVolume, 1, totalPerc);
+                fireController.AddBurnPower(50 * Mathf.Sin(Mathf.Lerp(0, Mathf.PI / 2, perc)));
                 break;
             case 30:
-                starveText.color = new Color(1, 1, 1, Mathf.Lerp(0, 1, totalPerc));
-                starveText.gameObject.SetActive(true);
+                fireController.SetBurnPowerDecay(5);
+                cam.transform.Translate(camTranslateForward * perc * Vector3.forward, Space.Self);
+
+                SoundHandler.Instance.SetVolume(SoundHandler.SoundType.FIRE, audioSource, Mathf.Sin(Mathf.Lerp(0, Mathf.PI / 2, totalPerc)));
+                break;
+            case 40:
+                starveText.color = new Color(1, 1, 1, Mathf.Sin(Mathf.Lerp(0, Mathf.PI / 2, totalPerc)));
+                startText.gameObject.SetActive(true);
+                fireController.SetMinBurnPower(35);
+                break;
+            case 50:
+                cam.transform.Translate(45 * perc * Vector3.up, Space.World);
+                cam.transform.LookAt(Vector3.up * lookat);
                 break;
             default:
                 break;

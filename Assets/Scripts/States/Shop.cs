@@ -13,7 +13,6 @@ public class Shop : State
 
     public override void Enter()
     {
-        Debug.Log("Display Canvas");
         gameController.Canvas.SetActive(true);
         gameController.SetLevel(GameState.Shop);
     }
@@ -24,13 +23,11 @@ public class Shop : State
 
     public override void Exit()
     {
-        Debug.Log("Hide Canvas");
         gameController.Canvas.SetActive(false);
     }
 
     public void CloseShop()
     {
-        Debug.Log("CloseShop");
         gameController.ChangeState(nextState);
     }
 }
