@@ -75,7 +75,7 @@ public class FireController : MonoBehaviour
     {
         /* gradually reducing burn power */
         addBurnPower(burnPowerDecay * Time.deltaTime);
-        float perlinNoise = Mathf.PerlinNoise(Time.frameCount/1000f*intensityChangeFrequency,0) * 4 + 1;
+        float perlinNoise = Mathf.PerlinNoise(Time.frameCount/1000f*intensityChangeFrequency,0) * 500 + 500;
         fireLight.intensity = perlinNoise;
     }
 
