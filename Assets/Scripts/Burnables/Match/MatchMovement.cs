@@ -16,8 +16,6 @@ public class MatchMovement : BurnableMovement
 
     private float timeSpawned = 0f;
 
-    private GameObject thrownMatch = null;
-
     new void Start()
     {
         base.Start();
@@ -62,14 +60,7 @@ public class MatchMovement : BurnableMovement
 
     public void ThrowMatch()
     {
-        if (thrownMatch)
-        {
-            Destroy(thrownMatch);
-        }
-
-        match.SetActive(false);
-
-        thrownMatch = Instantiate( match, transform.position, Quaternion.identity, null);
+        GameObject thrownMatch = Instantiate(match, transform.position, Quaternion.identity);
         thrownMatch.SetActive(true);
         thrownMatch.transform.localScale *= 100;
         thrownMatch.transform.rotation = match.transform.rotation;
@@ -78,14 +69,7 @@ public class MatchMovement : BurnableMovement
         rb.AddForce(randomVector * 1000);
         rb.AddTorque(randomVector * 1000);
 
-    }
-
-    private void OnDestroy()
-    {
-        if (thrownMatch)
-        {
-            Destroy(thrownMatch);
-        }
+        match.SetActive(false);
     }
 
 }

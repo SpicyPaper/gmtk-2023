@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class SparkController : MonoBehaviour
 {
+    [SerializeField] private GameObject oilSpillPrefab;
+
+    private bool created = false;
+
     void Start()
     {
         Rigidbody rigidbody = gameObject.GetComponent<Rigidbody>();
@@ -17,10 +21,13 @@ public class SparkController : MonoBehaviour
 
     void Update()
     {
-        if (gameObject.transform.position.y < 0){
-            //Spawn oil on fire;
+        if (gameObject.transform.position.y <= 0 && !created)
+        {
+            Instantiate(oilSpillPrefab, gameObject.transform.position, Quaternion.identity);
+            created = true;
         }
-        if (gameObject.transform.position.y < -20){
+        if (gameObject.transform.position.y < -20)
+        {
             Destroy(gameObject);
         }
     }

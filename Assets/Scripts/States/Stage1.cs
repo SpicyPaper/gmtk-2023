@@ -10,8 +10,15 @@ public class Stage1 : StageState
         waitTimeBeforeLevelStart = gameController.WaitTimeBeforeLevel1Start;
     }
 
+    public override void Enter()
+    {
+        GameController.gameState = currentLevel;
+    }
+
     public override void Execute()
     {
+        FireController.instance.SetBurnPowerDecay(1);
+
         if (levelStarted && fireController.BurnPower <= gameController.BurnPowerThreshold)
         {
             StageState nextState = new Stage2(gameController, gameController.BurnablePrefabs[1]);

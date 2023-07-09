@@ -242,8 +242,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   burnPower: 50
   initialHealth: 1
-  speed: 5
+  speed: 2
   soundType: 3
+  health: 0
 --- !u!114 &238887713148449503
 MonoBehaviour:
   m_ObjectHideFlags: 0
