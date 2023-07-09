@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 7039155724780665160}
   - component: {fileID: 2276257374374704310}
   m_Layer: 8
-  m_Name: choalboy
+  m_Name: BigCoal
   m_TagString: Burnable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
