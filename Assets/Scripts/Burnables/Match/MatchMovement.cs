@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MatchMovement : BurnableMovement
@@ -13,7 +12,17 @@ public class MatchMovement : BurnableMovement
 
     private float currentAngle = 0f;
 
-    
+    [SerializeField] private GameObject match = null;
+
+    private float timeSpawned = 0f;
+
+    new void Start()
+    {
+        base.Start();
+        timeSpawned = Time.time;    
+    }
+
+
     void Update()
     {
 

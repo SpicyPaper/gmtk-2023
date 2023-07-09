@@ -12,7 +12,7 @@ public class BurnableMovement : MonoBehaviour
     private Animator animator;
 
     // Start is called before the first frame update
-    void Start()
+    protected void Start()
     {
         burnable = GetComponent<Burnable>();
         animator = GetComponent<Animator>();
