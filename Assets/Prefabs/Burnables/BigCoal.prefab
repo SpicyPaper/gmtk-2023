@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 2623628268176813267}
   - component: {fileID: 5971638755386736617}
   - component: {fileID: 7039155724780665160}
+  - component: {fileID: 2276257374374704310}
   m_Layer: 8
   m_Name: choalboy
   m_TagString: Burnable
@@ -243,8 +244,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3401853273083973058}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.9, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6399274743126558694}
@@ -287,9 +288,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a064d9aa274de2cd9afbab06a30ed4f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burnPower: 10
+  burnPower: 5
   initialHealth: 1
-  speed: 3
+  speed: 2
   soundType: 0
 --- !u!65 &2648893239150399991
 BoxCollider:
@@ -302,8 +303,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.559963, y: 1.6131546, z: 3.6257286}
-  m_Center: {x: -0.2799815, y: 1.2259444, z: 1.8964877}
+  m_Size: {x: 1.559963, y: 2.5699675, z: 3.6257286}
+  m_Center: {x: -0.2799815, y: 0.784984, z: 1.8964877}
 --- !u!114 &2623628268176813267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,7 +317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0175a488fb8152a4cbfd489cd507a150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coalBoyBody: {fileID: 1949742741065070065}
 --- !u!114 &5971638755386736617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,6 +346,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2276257374374704310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3401853273083973058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d899fe4e372c92c4c862ae2f44edc498, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coalboyPrefab: {fileID: 3730856667682868089, guid: bd2fa9b8156a2e940abdbc51a8ba2466, type: 3}
 --- !u!1 &3611372937983568417
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,7 +401,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3705780444683636129}
   m_Layer: 0
-  m_Name: CoalBoy
+  m_Name: BigCoal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,6 +12,20 @@ public class GameController : MonoBehaviour
 
     public List<GameObject> BurnablePrefabs;
 
+    public GameObject Canvas;
+
+    [Header("Stages Config")]
+    public int NumberOfSpawnBurnables = 3;
+    public float BurnPowerThreshold = 10.0f;
+    public float WaitTimeBeforeLevel1Start = 3.0f;
+    public float WaitTimeBeforeLevel2Start = 3.0f;
+    public float WaitTimeBeforeLevel3Start = 3.0f;
+    public float WaitTimeBeforeLevel4Start = 3.0f;
+
+    [Header("Upgrade Config")]
+    public float UpgradeClickCooldownModifier = 0.2f;
+    public float UpgradeRangeModifier = 1.2f;
+    public float UpgradePuddleModifier = 1.2f;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +60,11 @@ public class GameController : MonoBehaviour
             currentState.Enter();
     }
 
+    public void SetLevel(GameState newGameState)
+    {
+        gameState = newGameState;
+    }
+
 
     public bool BurnableClicked(Burnable burnable)
     {
@@ -66,6 +85,25 @@ public class GameController : MonoBehaviour
         FireController.instance.AddBurnPower(burnable.GetBurnPower());
         Destroy(burnable.gameObject);
         // Destroy(burnable.transform.parent.gameObject);
+    }
+
+    public void UpgradeClick()
+    {
+        // TODO: Upgrade click
+
+        ((Shop)currentState).CloseShop();
+    }
+
+    public void UpgradeRange()
+    {
+        // TODO: Upgrade range
+        ((Shop)currentState).CloseShop();
+    }
+
+    public void UpgradePuddle()
+    {
+        // TODO: Upgrade puddle
+        ((Shop)currentState).CloseShop();
     }
 
 }

@@ -6,4 +6,5 @@ public enum GameState
     Level2,
     Level3,
     Level4,
+    Shop,
 }
