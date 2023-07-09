@@ -14,6 +14,11 @@ public class Stage4 : StageState
         waitTimeBeforeLevelStart = gameController.WaitTimeBeforeLevel4Start;
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+    }
+
     public override void Execute()
     {
         if (levelStarted && fireController.BurnPower <= gameController.BurnPowerThreshold)
@@ -41,6 +46,7 @@ public class Stage4 : StageState
     IEnumerator WaitLevelStart2()
     {
         yield return new WaitForSeconds(neededTime);
+        SoundHandler.Instance.ClearAllSounds();
         SceneManager.LoadScene("IntroScene");
     }
 }

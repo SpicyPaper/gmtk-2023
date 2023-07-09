@@ -18,14 +18,6 @@ public class Burnable : MonoBehaviour
 
     private Animator animator;
 
-    private void Awake()
-    {
-        if (SoundHandler.Instance != null)
-        {
-            SoundHandler.Instance.RegisterSound(soundType);
-        }
-    }
-
     void Start()
     {
         health = initialHealth;
@@ -75,7 +67,5 @@ public class Burnable : MonoBehaviour
     public void OnDestroy()
     {
         Destroy(gameObject.transform.parent.gameObject);
-
-        SoundHandler.Instance.UnregisterSound(soundType);
     }
 }

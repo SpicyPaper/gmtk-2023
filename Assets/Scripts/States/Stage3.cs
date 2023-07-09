@@ -10,6 +10,11 @@ public class Stage3 : StageState
         waitTimeBeforeLevelStart = gameController.WaitTimeBeforeLevel3Start;
     }
 
+    public override void Enter()
+    {
+        base.Enter();
+    }
+
     public override void Execute()
     {
         if (levelStarted && fireController.BurnPower <= gameController.BurnPowerThreshold)

@@ -18,8 +18,9 @@ public class Spawner : MonoBehaviour
 
     private LevelSpawnConfig levelConfig;
 
-    private int deepshit;
     private bool doneOnce;
+
+    private GameState prevState;
 
     private void Start()
     {
@@ -28,6 +29,7 @@ public class Spawner : MonoBehaviour
         {
             spawnTimer = levelConfig.spawnInterval;
         }
+        prevState = GameState.Menu;
     }
 
     void FixedUpdate()
@@ -42,6 +44,26 @@ public class Spawner : MonoBehaviour
 
         if (levelConfig != null)
         {
+            if (prevState != GameController.gameState)
+            {
+                switch (GameController.gameState)
+                {
+                    case GameState.Level1:
+                        SoundHandler.Instance.PlaySound(SoundHandler.SoundType.COAL_VOICE);
+                        break;
+                    case GameState.Level2:
+                        SoundHandler.Instance.PlaySound(SoundHandler.SoundType.BIG_COAL_VOICE);
+                        break;
+                    case GameState.Level3:
+                        SoundHandler.Instance.PlaySound(SoundHandler.SoundType.MATCHES_VOICE);
+                        break;
+                    case GameState.Level4:
+                        SoundHandler.Instance.PlaySound(SoundHandler.SoundType.GAS_VOICE);
+                        break;
+                }
+            }
+            prevState = GameController.gameState;
+
             if (!doneOnce)
             {
                 doneOnce = true;
@@ -54,12 +76,6 @@ public class Spawner : MonoBehaviour
             {
                 return;
             }
-
-            if (deepshit % 2 == 0)
-            {
-                SoundHandler.Instance.PlayRegisteredSounds();
-            }
-            deepshit++;
 
             for (int i = 0; i < levelConfig.numberOfBurnables; i++)
             {
