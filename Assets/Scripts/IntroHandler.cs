@@ -130,7 +130,7 @@ public class IntroHandler : MonoBehaviour
                 break;
             case 100:
                 SoundHandler.Instance.ClearAllSounds();
-                SceneManager.LoadScene("TestBurnableMovement");
+                SceneManager.LoadScene("GameScene");
                 break;
             default:
                 break;
