@@ -46,6 +46,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f12488c04c5f4ed85ecb84e846e864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BurnablePrefabs: []
+  Canvas: {fileID: 0}
+  NumberOfSpawnBurnables: 3
+  BurnPowerThreshold: 10
+  WaitTimeBeforeLevel1Start: 3
+  WaitTimeBeforeLevel2Start: 3
+  WaitTimeBeforeLevel3Start: 3
+  WaitTimeBeforeLevel4Start: 3
+  UpgradeClickCooldownModifier: 0.2
+  UpgradeRangeModifier: 1.2
+  UpgradePuddleModifier: 1.2
+  currentPuddleSize: 1
 --- !u!114 &4995501619893896955
 MonoBehaviour:
   m_ObjectHideFlags: 0

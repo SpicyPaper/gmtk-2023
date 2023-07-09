@@ -15,10 +15,13 @@ public class Tutorial : State
 
     bool started = false;
 
+    IEnumerator slowDownTime;
+
 
     public Tutorial(GameController gameController, State nextState) : base(gameController)
     {
         this.nextState = nextState;
+        slowDownTime = SlowDownTime();
     }
 
     public override void Enter()
@@ -34,7 +37,7 @@ public class Tutorial : State
         tutorialCoal = gameObject.GetComponentInChildren<Burnable>();
         tutorialCoal.SetSpeed(initialSpeed);
         initialFireBurn = FireController.instance.BurnPower;
-        gameController.StartCoroutine(SlowDownTime());
+        gameController.StartCoroutine(slowDownTime);
         started = true;
     }
 
@@ -58,10 +61,11 @@ public class Tutorial : State
 
     public override void Execute()
     {
-
-
-        if (tutorialCoal == null && started)
+        Debug.Log(tutorialCoal);
+        if ((tutorialCoal == null || tutorialCoal.health <= 0) && started)
         {
+            gameController.StopCoroutine(slowDownTime);
+            Time.timeScale = 1;
             gameController.ChangeState(nextState);
         }
     }

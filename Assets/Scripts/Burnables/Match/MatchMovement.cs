@@ -16,6 +16,8 @@ public class MatchMovement : BurnableMovement
 
     private float timeSpawned = 0f;
 
+    private GameObject thrownMatch = null;
+
     new void Start()
     {
         base.Start();
@@ -51,6 +53,30 @@ public class MatchMovement : BurnableMovement
             burnable.GetSpeed() * Time.deltaTime
         );
 
+    }
+
+    public void ThrowMatch()
+    {
+        if (thrownMatch)
+        {
+            Destroy(thrownMatch);
+        }
+
+        thrownMatch = Instantiate( match, transform.position, Quaternion.identity, null);
+        thrownMatch.transform.localScale *= 100;
+        Rigidbody rb = thrownMatch.AddComponent<Rigidbody>();
+        Vector3 randomVector = new Vector3(Random.Range(-1f, 1f), 1f, Random.Range(-1f, 1f)).normalized;
+        rb.AddForce(randomVector * 1000);
+        rb.AddTorque(randomVector * 1000);
+
+    }
+
+    private void OnDestroy()
+    {
+        if (thrownMatch)
+        {
+            Destroy(thrownMatch);
+        }
     }
 
 }
