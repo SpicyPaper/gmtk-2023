@@ -8,6 +8,7 @@ TagManager:
   - Fire
   - Oil Spill Holder
   - Oil Spill
+  - Canvas
   layers:
   - Default
   - TransparentFX

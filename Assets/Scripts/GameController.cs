@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
 
     public List<GameObject> BurnablePrefabs;
 
+    public GameObject Canvas;
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,11 @@ public class GameController : MonoBehaviour
             currentState.Enter();
     }
 
+    public void SetLevel(GameState newGameState)
+    {
+        gameState = newGameState;
+    }
+
 
     public bool BurnableClicked(Burnable burnable)
     {
@@ -66,6 +73,24 @@ public class GameController : MonoBehaviour
         FireController.instance.addBurnPower(burnable.GetBurnPower());
         Destroy(burnable.gameObject);
         // Destroy(burnable.transform.parent.gameObject);
+    }
+
+    public void UpgradeClick()
+    {
+        // TODO: Upgrade click
+        ((Shop)currentState).CloseShop();
+    }
+
+    public void UpgradeRange()
+    {
+        // TODO: Upgrade range
+        ((Shop)currentState).CloseShop();
+    }
+
+    public void UpgradePuddle()
+    {
+        // TODO: Upgrade puddle
+        ((Shop)currentState).CloseShop();
     }
 
 }
