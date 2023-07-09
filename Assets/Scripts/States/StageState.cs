@@ -43,6 +43,13 @@ public class StageState : State
 
     public override void Exit()
     {
+        // Kill all burnables
+        GameObject[] burnables = GameObject.FindGameObjectsWithTag("Burnable");
+        foreach (GameObject burnable in burnables)
+        {
+            Burnable b = (Burnable)(burnable.GetComponentInChildren<Burnable>());
+            b.TakeDamage(1000);
+        }
     }
 
     private Vector3 GetRandomSpawnPosition()
@@ -56,11 +63,13 @@ public class StageState : State
 
     IEnumerator WaitLevelStart()
     {
+        GameController.instance.CanClick = false;
         //yield on a new YieldInstruction that waits for 5 seconds.
         yield return new WaitForSeconds(waitTimeBeforeLevelStart);
         Debug.Log(currentLevel);
 
         gameController.SetLevel(currentLevel);
         levelStarted = true;
+        GameController.instance.CanClick = true;
     }
 }

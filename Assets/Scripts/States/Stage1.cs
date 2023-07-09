@@ -18,8 +18,4 @@ public class Stage1 : StageState
             gameController.ChangeState(new Shop(gameController, nextState));
         }
     }
-
-    public override void Exit()
-    {
-    }
 }

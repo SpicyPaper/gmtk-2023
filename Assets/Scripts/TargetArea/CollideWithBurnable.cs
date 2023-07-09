@@ -60,7 +60,7 @@ public class CollideWithBurnable : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (canClick)
+        if (canClick && GameController.instance.CanClick)
         {
             handleBurnableClicked();
             handleOilSpillClicked();
@@ -78,6 +78,7 @@ public class CollideWithBurnable : MonoBehaviour
         for (int i = 0; i < collisionList.Count; i++)
         {
             Burnable burnable = collisionList[i];
+
             if (burnable == null)
             {
                 toRemove.Add(burnable);
