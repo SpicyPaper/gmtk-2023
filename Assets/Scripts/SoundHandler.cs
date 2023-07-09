@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
+using static SoundHandler;
 
 public class SoundHandler : MonoBehaviour
 {
@@ -96,6 +98,7 @@ public class SoundHandler : MonoBehaviour
 
         List<AudioClip> audioClips = null;
         AudioSourceManager audioSourceManager = null;
+        float volume = 0;
 
         bool loop = false;
 
@@ -140,9 +143,43 @@ public class SoundHandler : MonoBehaviour
         AudioClip audioClip = audioClips[UnityEngine.Random.Range(0, audioClips.Count)];
         audioSource.clip = audioClip;
         audioSource.loop = loop;
+        SetVolume(soundType, audioSource, volume);
 
         audioSourceObject.GetComponent<AudioSourceManager>().Play();
 
         return audioSource;
+    }
+
+    public float MaxVolume(SoundType soundType)
+    {
+        switch (soundType)
+        {
+            case SoundType.COAL_VOICE:
+                return 0.8f;
+            case SoundType.BIG_COAL_VOICE:
+                return 0.6f;
+            case SoundType.MATCHES_VOICE:
+                return 0.8f;
+            case SoundType.GAS_VOICE:
+                return 0.5f;
+            case SoundType.MAIN_MUSIC:
+                return 0.9f;
+            case SoundType.FIRE:
+                return 0.6f;
+            case SoundType.CLICK:
+                return 1;
+        }
+
+        return 0;
+    }
+
+    public void SetVolume(SoundType soundType, AudioSource audioSource, float volume)
+    {
+        if (volume > MaxVolume(soundType))
+        {
+            volume = MaxVolume(soundType);
+        }
+
+        audioSource.volume = volume;
     }
 }

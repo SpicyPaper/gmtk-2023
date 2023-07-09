@@ -63,7 +63,7 @@ public class GameController : MonoBehaviour
 
     public void BurnableReachedFire(Burnable burnable)
     {
-        FireController.instance.addBurnPower(burnable.GetBurnPower());
+        FireController.instance.AddBurnPower(burnable.GetBurnPower());
         Destroy(burnable.gameObject);
         // Destroy(burnable.transform.parent.gameObject);
     }
