@@ -10,8 +10,7 @@ public class GameController : MonoBehaviour
     public static GameState gameState = GameState.Menu;
     private State currentState;
 
-    [SerializeField]
-    private GameObject initialBurnablePrefab;
+    public List<GameObject> BurnablePrefabs;
 
 
     // Start is called before the first frame update
@@ -27,7 +26,7 @@ public class GameController : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        ChangeState(new Stage1(this, initialBurnablePrefab));
+        ChangeState(new Stage1(this, BurnablePrefabs[0]));
     }
 
     void Update()

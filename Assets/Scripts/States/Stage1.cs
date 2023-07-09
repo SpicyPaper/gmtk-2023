@@ -10,6 +10,10 @@ public class Stage1 : StageState
 
     public override void Execute()
     {
+        if (fireController.BurnPower <= 0)
+        {
+            gameController.ChangeState(new Stage2(gameController, gameController.BurnablePrefabs[1]));
+        }
     }
 
     public override void Exit()
