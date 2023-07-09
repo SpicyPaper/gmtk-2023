@@ -18,11 +18,13 @@ public class IntroHandler : MonoBehaviour
     private float elapsed;
 
     private float camTranslateForward = 70;
-    private float camTranslateUp = 45;
-    private float camTranslateBack = 10;
+    private float camTranslateUp = 47.6f;
+    private float camTranslateBack = 10.4f;
+
     private float initFireVolume = 0.2f;
     private float endFireVolume = 0.4f;
     private float lookat = 1.3f;
+    private float lookatEnd = -20f;
 
     private int simpleCoalStep = 0;
 
@@ -106,7 +108,7 @@ public class IntroHandler : MonoBehaviour
             case 80:
                 cam.transform.Translate(camTranslateUp * perc * Vector3.up, Space.World);
                 cam.transform.Translate(camTranslateBack * perc * Vector3.back, Space.World);
-                cam.transform.LookAt(Vector3.up * lookat * Mathf.Lerp(1, 0, totalPerc));
+                cam.transform.LookAt(Vector3.up * Mathf.Lerp(lookat, lookatEnd, totalPerc));
                 SoundHandler.Instance.SetVolume(SoundHandler.SoundType.FIRE, audioSource, Mathf.Sin(Mathf.Lerp(Mathf.PI / 2, endFireVolume, totalPerc)));
 
                 if ((totalPerc > 0.5f && simpleCoalStep == 0) ||
@@ -120,8 +122,8 @@ public class IntroHandler : MonoBehaviour
             case 90:
                 fireController.SetMinBurnPower(30);
                 if ((totalPerc > 0.3f && simpleCoalStep == 2) ||
-                    (totalPerc > 0.5f && simpleCoalStep == 3) ||
-                    (totalPerc > 0.65f && simpleCoalStep == 4))
+                    (totalPerc > 0.52f && simpleCoalStep == 3) ||
+                    (totalPerc > 0.7f && simpleCoalStep == 4))
                 {
                     AudioSource audio = SoundHandler.Instance.PlaySound(SoundHandler.SoundType.COAL_ONE);
                     SoundHandler.Instance.SetVolume(SoundHandler.SoundType.COAL_ONE, audio, 0.4f);

@@ -36,6 +36,7 @@ public class CollideWithBurnable : MonoBehaviour
             canClick = true;
             gameObject.GetComponent<MeshRenderer>().material.color = Color.yellow;
         }
+
         if (lastPuddleTime + puddleCooldown < Time.time)
         {
             // if right click
