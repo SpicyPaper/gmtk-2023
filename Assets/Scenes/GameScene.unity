@@ -1084,7 +1084,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4995501619893896952, guid: c08d35a24454abe4b85cf1797ae84321, type: 3}
       propertyPath: BurnPowerThreshold
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4995501619893896952, guid: c08d35a24454abe4b85cf1797ae84321, type: 3}
       propertyPath: UpgradePuddleModifier

@@ -40,7 +40,7 @@ public class GameController : MonoBehaviour
         {
             instance = this;
             FireController.instance.SetBurnPowerDecay(0);
-            FireController.instance.SetMinBurnPower(9);
+            FireController.instance.SetMinBurnPower(19);
             FireController.instance.SetMaxBurnPower(80);
             FireController.instance.SetBurnPower(40);
         }
