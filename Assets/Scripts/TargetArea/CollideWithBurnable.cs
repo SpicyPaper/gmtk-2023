@@ -32,19 +32,17 @@ public class CollideWithBurnable : MonoBehaviour
     void Update()
     {
 
-
         if (lastClickTime + clickCooldown < Time.time || GameController.gameState == GameState.Tutorial)
         {
             canClick = true;
             gameObject.GetComponent<MeshRenderer>().material.color = Color.yellow;
         }
+
         if (lastPuddleTime + puddleCooldown < Time.time)
         {
             // if right click
             if (Input.GetMouseButtonDown(1))
             {
-                Debug.Log("Right click");
-
                 lastPuddleTime = Time.time;
                 float puddleSize = GameController.instance.GetPuddleSize();
                 GameObject puddle = Instantiate(puddlePrefab, transform.position, Quaternion.identity);
