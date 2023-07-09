@@ -38,7 +38,6 @@ public class CollideWithBurnable : MonoBehaviour
         }
         if (lastPuddleTime + puddleCooldown < Time.time)
         {
-            Debug.Log("Before right click");
             // if right click
             if (Input.GetMouseButtonDown(1))
             {
