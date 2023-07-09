@@ -12,9 +12,16 @@ public class Burnable : MonoBehaviour
 
     [SerializeField] private float speed = 1;
 
+    [SerializeField] public SoundHandler.SoundType soundType;
+
     private int health;
 
     private Animator animator;
+
+    private void Awake()
+    {
+        SoundHandler.Instance.RegisterSound(soundType);
+    }
 
     void Start()
     {
@@ -56,7 +63,10 @@ public class Burnable : MonoBehaviour
         return isDead;
     }
 
+
     public void OnDestroy(){
         Destroy(gameObject.transform.parent.gameObject);
+
+        SoundHandler.Instance.UnregisterSound(soundType);
     }
 }

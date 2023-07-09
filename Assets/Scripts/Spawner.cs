@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class Spawner : MonoBehaviour
 {
@@ -14,40 +15,55 @@ public class Spawner : MonoBehaviour
     [SerializeField]
     private float spawnDistance = 20.0f;
 
-    private float spawnTimer = 0.0f;
+    private float spawnTimer;
 
-    void Start()
+    private LevelSpawnConfig levelConfig;
+
+    private int deepshit;
+    private bool doneOnce;
+
+    private void Start()
     {
+        levelConfig = spawnConfig.levelSpawnConfigs.Find(config => config.level == GameController.gameState);
+        spawnTimer = levelConfig.spawnInterval;
     }
-
-    // Update is called once per frame
-    void Update() { }
 
     void FixedUpdate()
     {
         TrySpawnBurnable();
     }
 
-
     private void TrySpawnBurnable()
     {
         // Generate a random number between 0 and sum of probabilities in burnablePrefabs
-        LevelSpawnConfig levelConfig = spawnConfig.levelSpawnConfigs.Find(config => config.level == GameController.gameState);
+        levelConfig = spawnConfig.levelSpawnConfigs.Find(config => config.level == GameController.gameState);
 
         if (levelConfig != null)
         {
+            if (!doneOnce)
+            {
+                doneOnce = true;
+                SoundHandler.Instance.PlaySound(SoundHandler.SoundType.MAIN_MUSIC);
+                SoundHandler.Instance.PlaySound(SoundHandler.SoundType.FIRE);
+            }
 
-            spawnTimer += Time.fixedDeltaTime;
-            if (spawnTimer < levelConfig.spawnInterval)
+            spawnTimer -= Time.fixedDeltaTime;
+            if (spawnTimer > 0)
             {
                 return;
             }
 
+            if (deepshit % 2 == 0)
+            {
+                SoundHandler.Instance.PlayRegisteredSounds();
+            }
+            deepshit++;
 
             for (int i = 0; i < levelConfig.numberOfBurnables; i++)
             {
                 float probSum = levelConfig.burnableSpawnChances.Sum(x => x.spawnProbability);
                 float randomNum = Random.Range(0.0f, probSum);
+
                 foreach (var item in levelConfig.burnableSpawnChances)
                 {
                     if (randomNum < item.spawnProbability)
@@ -61,10 +77,8 @@ public class Spawner : MonoBehaviour
                     }
                 }
             }
-            spawnTimer = 0.0f;
-
+            spawnTimer = levelConfig.spawnInterval + spawnTimer;
         }
-
     }
 
     private void SpawnBurnable(GameObject burnable)

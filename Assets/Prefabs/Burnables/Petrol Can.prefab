@@ -309,6 +309,7 @@ MonoBehaviour:
   burnPower: 5
   initialHealth: 1
   speed: 5
+  soundType: 3
 --- !u!114 &238887713148449503
 MonoBehaviour:
   m_ObjectHideFlags: 0

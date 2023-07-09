@@ -17,8 +17,6 @@ public class GameController : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            SoundHandler.Instance.PlaySound(SoundHandler.SoundType.MAIN_MUSIC);
-            SoundHandler.Instance.PlaySound(SoundHandler.SoundType.FIRE);
         }
         else if (instance != this)
         {

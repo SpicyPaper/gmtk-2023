@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class AudioSourceManager : MonoBehaviour
 {
-    private AudioSource audioSource;
+    public AudioSource AudioSource { get; private set; }
 
     private bool playStarted = false;
 
     // Start is called before the first frame update
     void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
+        AudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class AudioSourceManager : MonoBehaviour
         {
             return;
         }
-        if (audioSource.isPlaying)
+        if (AudioSource.isPlaying)
         {
             return;
         }
@@ -31,8 +31,15 @@ public class AudioSourceManager : MonoBehaviour
 
     public void Play()
     {
-        audioSource.Play();
+        AudioSource.Play();
 
         playStarted = true;
+    }
+
+    public void Stop()
+    {
+        AudioSource.Stop();
+
+        Destroy(gameObject);
     }
 }
