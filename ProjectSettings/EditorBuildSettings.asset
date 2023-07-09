@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/IntroScene.unity
     guid: 8db54527159691c4e8bed0fe73e59ea0
   - enabled: 1
-    path: Assets/Scenes/TestBurnableMovement.unity
+    path: Assets/Scenes/GameScene.unity
     guid: 3f4ec76098d77ccaca9b45d1799491ae
   m_configObjects: {}
