@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class CollideWithBurnable : MonoBehaviour
 {
+    [SerializeField] private float clickCooldown = 1.0f;
+    private float lastClickTime = -1f;
+    private bool canClick = true;
     private List<Burnable> collisionList;
 
     private List<OilSpill> oilSpillList;
@@ -18,14 +21,23 @@ public class CollideWithBurnable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (lastClickTime + clickCooldown < Time.time){
+            canClick = true;
+            gameObject.GetComponent<MeshRenderer>().material.color = Color.yellow;
+        }
     }
 
     void OnMouseDown()
     {
-        Debug.Log("Mouse clicked.");
-        handleBurnableClicked();
-        handleOilSpillClicked();
-        SoundHandler.Instance.PlaySound(SoundHandler.SoundType.CLICK);
+        if (canClick){
+            handleBurnableClicked();
+            handleOilSpillClicked();
+            SoundHandler.Instance.PlaySound(SoundHandler.SoundType.CLICK);
+
+            canClick = false;
+            lastClickTime = Time.time;
+            gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+        }
     }
 
     private void handleBurnableClicked()

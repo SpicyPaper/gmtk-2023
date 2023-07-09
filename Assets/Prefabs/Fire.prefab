@@ -9642,8 +9642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe445da27dcc9c18e81f4c5fa1818dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialBurnPower: 100
-  burnPowerDecay: 1
+  initialBurnPower: 50
+  burnPowerDecay: 3
   redFire: {fileID: 3958470734420205156}
   oragenFire: {fileID: 4247593912052701364}
   yellowFire: {fileID: 7883516808342219386}
@@ -19493,8 +19493,8 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.34757438, b: 0, a: 1}
-  m_Intensity: 500
+  m_Color: {r: 0.9339623, g: 0.46686015, b: 0.09251513, a: 1}
+  m_Intensity: 602.11
   m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208

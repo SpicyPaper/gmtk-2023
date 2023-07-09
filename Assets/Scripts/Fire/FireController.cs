@@ -6,7 +6,7 @@ public class FireController : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-    private float initialBurnPower = 50f;
+    private float initialBurnPower = 100f;
 
     [SerializeField]
     private float burnPowerDecay = 1f;
@@ -35,7 +35,7 @@ public class FireController : MonoBehaviour
             instance = this;
             initialPosition = transform.position;
             burnPowerDecay = -Mathf.Abs(burnPowerDecay);
-            initialScale = redFire.localScale.x;
+            initialScale = redFire.GetComponent<ParticleSystem>().startSize;
             BurnPower = initialBurnPower;
             /* fireLight = GameObject.Find("FireLight").GetComponent<Light>(); */
             setFireScale(initialScale);
@@ -49,17 +49,24 @@ public class FireController : MonoBehaviour
     // Update is called once per frame
     void setFireScale(float scale)
     {
-        redFire.localScale = new Vector3(scale, scale, scale);
-        yellowFire.localScale = new Vector3(scale, scale, scale);
-        oragenFire.localScale = new Vector3(scale, scale, scale);
+        //redFire.localScale = new Vector3(scale, scale, scale);
+        //yellowFire.localScale = new Vector3(scale, scale, scale);
+        //oragenFire.localScale = new Vector3(scale, scale, scale);
 
         //float yTarget = (transform.localScale.y) / 2.0f;
         //transform.Translate(0, (yTarget - transform.position.y), 0);
-        fireLight.range = scale * 15;
+        fireLight.range = (Mathf.Exp(scale / 1.5f)-1) * 100;
 
-        redFire.GetComponent<ParticleSystem>().startSize = scale / 2;
-        yellowFire.GetComponent<ParticleSystem>().startSize = scale / 2 * 0.25f;
-        oragenFire.GetComponent<ParticleSystem>().startSize = scale / 2 * 0.5f;
+        float v = 0.4f;
+        redFire.GetComponent<ParticleSystem>().startSize = Mathf.Max(4*v,(Mathf.Exp(scale / 1.5f) - 1) * 4) ;
+        yellowFire.GetComponent<ParticleSystem>().startSize = Mathf.Max( v, (Mathf.Exp(scale / 1.5f) - 1) * 1f);
+        oragenFire.GetComponent<ParticleSystem>().startSize = Mathf.Max(2 * v, (Mathf.Exp(scale / 1.5f) - 1) * 2f);
+    }
+
+    public void ResetFireScale()
+    {
+        setFireScale(initialScale);
+        BurnPower = initialBurnPower;
     }
 
     public void addBurnPower(float burnPower)
