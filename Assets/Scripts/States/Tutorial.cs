@@ -7,7 +7,6 @@ public class Tutorial : State
 
     private float duration = 10f;
     private float targetTimeScale = 0f;
-    float currentTime = 0.0f;
     float initialSpeed = 3.0f;
     Burnable tutorialCoal;
 
@@ -61,7 +60,6 @@ public class Tutorial : State
 
     public override void Execute()
     {
-        Debug.Log(tutorialCoal);
         if ((tutorialCoal == null || tutorialCoal.health <= 0) && started)
         {
             gameController.StopCoroutine(slowDownTime);
@@ -78,7 +76,7 @@ public class Tutorial : State
 
     private Vector3 GetRandomSpawnPosition()
     {
-        float randomAngle = Random.Range(180.0f, 360.0f);
+        float randomAngle = 225.0f;
         Vector3 randomDirection = Quaternion.Euler(0.0f, randomAngle, 0.0f) * Vector3.forward;
         Vector3 spawnPosition = randomDirection * 40;
         return spawnPosition;
