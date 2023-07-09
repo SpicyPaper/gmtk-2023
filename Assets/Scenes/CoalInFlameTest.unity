@@ -489,6 +489,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2553339294874571065, guid: bd2fa9b8156a2e940abdbc51a8ba2466, type: 3}
+      propertyPath: speed
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2648893239150399991, guid: bd2fa9b8156a2e940abdbc51a8ba2466, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1301,7 +1305,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 4995501620553499198}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6f12488c04c5f4ed85ecb84e846e864, type: 3}
   m_Name: 
@@ -1929,7 +1933,7 @@ PrefabInstance:
       objectReference: {fileID: 1785757634}
     - target: {fileID: 4995501619893896952, guid: c08d35a24454abe4b85cf1797ae84321, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4995501619893896952, guid: c08d35a24454abe4b85cf1797ae84321, type: 3}
       propertyPath: initialBurnablePrefab

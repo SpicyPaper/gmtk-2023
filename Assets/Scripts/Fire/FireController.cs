@@ -23,6 +23,8 @@ public class FireController : MonoBehaviour
 
     private Vector3 initialPosition;
 
+    private float minBurnPower = 0;
+
     /* create a singleton */
     public static FireController instance = null;
 
@@ -34,11 +36,11 @@ public class FireController : MonoBehaviour
         {
             instance = this;
             initialPosition = transform.position;
-            burnPowerDecay = -Mathf.Abs(burnPowerDecay);
+            SetBurnPowerDecay(burnPowerDecay);
             initialScale = redFire.GetComponent<ParticleSystem>().startSize;
             BurnPower = initialBurnPower;
             /* fireLight = GameObject.Find("FireLight").GetComponent<Light>(); */
-            setFireScale(initialScale);
+            SetFireScale(initialScale);
         }
         else if (instance != this)
         {
@@ -46,8 +48,16 @@ public class FireController : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        /* gradually reducing burn power */
+        AddBurnPower(burnPowerDecay * Time.deltaTime);
+        float perlinNoise = Mathf.PerlinNoise(Time.frameCount / 1000f * intensityChangeFrequency, 0) * 500 + 500;
+        fireLight.intensity = perlinNoise;
+    }
+
     // Update is called once per frame
-    void setFireScale(float scale)
+    void SetFireScale(float scale)
     {
         //redFire.localScale = new Vector3(scale, scale, scale);
         //yellowFire.localScale = new Vector3(scale, scale, scale);
@@ -57,7 +67,7 @@ public class FireController : MonoBehaviour
         //transform.Translate(0, (yTarget - transform.position.y), 0);
         fireLight.range = (Mathf.Exp(scale / 1.5f)-1) * 100;
 
-        float v = 0.4f;
+        float v = 0f;
         redFire.GetComponent<ParticleSystem>().startSize = Mathf.Max(4*v,(Mathf.Exp(scale / 1.5f) - 1) * 4) ;
         yellowFire.GetComponent<ParticleSystem>().startSize = Mathf.Max( v, (Mathf.Exp(scale / 1.5f) - 1) * 1f);
         oragenFire.GetComponent<ParticleSystem>().startSize = Mathf.Max(2 * v, (Mathf.Exp(scale / 1.5f) - 1) * 2f);
@@ -65,29 +75,34 @@ public class FireController : MonoBehaviour
 
     public void ResetFireScale()
     {
-        setFireScale(initialScale);
+        SetFireScale(initialScale);
         BurnPower = initialBurnPower;
     }
 
-    public void addBurnPower(float burnPower)
+    public void SetMinBurnPower(float burnPower)
     {
-        this.BurnPower += burnPower;
-        if (this.BurnPower < 0)
-        {
-            this.BurnPower = 0;
-        }
-        else
-        {
-            setFireScale(this.BurnPower / initialBurnPower * initialScale);
-        }
+        minBurnPower = burnPower;
     }
 
-    void FixedUpdate()
+    public void SetBurnPower(float burnPower)
     {
-        /* gradually reducing burn power */
-        addBurnPower(burnPowerDecay * Time.deltaTime);
-        float perlinNoise = Mathf.PerlinNoise(Time.frameCount / 1000f * intensityChangeFrequency, 0) * 500 + 500;
-        fireLight.intensity = perlinNoise;
+        BurnPower = burnPower;
+        SetFireScale(BurnPower / initialBurnPower * initialScale);
+    }
+
+    public void AddBurnPower(float burnPower)
+    {
+        burnPower += BurnPower;
+        if (burnPower < minBurnPower)
+        {
+            burnPower = minBurnPower;
+        }
+        SetBurnPower(burnPower);
+    }
+
+    public void SetBurnPowerDecay(float burnPowerDecay)
+    {
+        this.burnPowerDecay = -Mathf.Abs(burnPowerDecay);
     }
 
 }
