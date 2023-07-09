@@ -60,7 +60,6 @@ public class MatchMovement : BurnableMovement
 
     public void ThrowMatch()
     {
-        Debug.Log("Throw");
         GameObject thrownMatch = Instantiate(match, transform.position, Quaternion.identity);
         thrownMatch.SetActive(true);
         thrownMatch.transform.localScale *= 100;
