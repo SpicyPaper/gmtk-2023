@@ -5,6 +5,8 @@ using UnityEngine;
 public class FollowMouse : MonoBehaviour
 {
     Plane plane = new Plane(Vector3.up, 0);
+
+    [SerializeField] private Light spotlight;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,11 @@ public class FollowMouse : MonoBehaviour
         if (plane.Raycast(ray, out distance)){
             Vector3 worldPosition = ray.GetPoint(distance);
             transform.position = worldPosition;
+
+            Vector3 spotlightPosition = ray.GetPoint(distance / 4);
+            spotlight.transform.position = spotlightPosition;
+
+            spotlight.transform.LookAt(gameObject.transform);
         }
     }
 }

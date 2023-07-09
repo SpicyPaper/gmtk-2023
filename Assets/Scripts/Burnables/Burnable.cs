@@ -20,7 +20,10 @@ public class Burnable : MonoBehaviour
 
     private void Awake()
     {
-        SoundHandler.Instance.RegisterSound(soundType);
+        if (SoundHandler.Instance != null)
+        {
+            SoundHandler.Instance.RegisterSound(soundType);
+        }
     }
 
     void Start()
@@ -38,6 +41,11 @@ public class Burnable : MonoBehaviour
     public float GetSpeed()
     {
         return speed;
+    }
+
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
     }
 
     public bool TakeDamage(int damage)
@@ -64,7 +72,8 @@ public class Burnable : MonoBehaviour
     }
 
 
-    public void OnDestroy(){
+    public void OnDestroy()
+    {
         Destroy(gameObject.transform.parent.gameObject);
 
         SoundHandler.Instance.UnregisterSound(soundType);
