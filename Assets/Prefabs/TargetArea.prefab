@@ -274,4 +274,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickCooldown: 1
+  puddleCooldown: 1
   spotlight: {fileID: 3307670637097186180}
+  puddlePrefab: {fileID: 835126160084238123, guid: 4bfd16e98bd7eab1b977bc0da2f1ca72, type: 3}

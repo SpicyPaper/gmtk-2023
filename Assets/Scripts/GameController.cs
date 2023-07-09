@@ -27,6 +27,8 @@ public class GameController : MonoBehaviour
     public float UpgradeRangeModifier = 1.2f;
     public float UpgradePuddleModifier = 1.2f;
 
+    [SerializeField] private float currentPuddleSize = 5.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -104,6 +106,17 @@ public class GameController : MonoBehaviour
     {
         // TODO: Upgrade puddle
         ((Shop)currentState).CloseShop();
+    }
+
+
+    public void SetPuddleSize(float size)
+    {
+        currentPuddleSize = size;
+    }
+
+    public float GetPuddleSize()
+    {
+        return currentPuddleSize;
     }
 
 }
