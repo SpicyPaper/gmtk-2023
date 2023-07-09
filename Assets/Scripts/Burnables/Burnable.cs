@@ -8,7 +8,7 @@ public class Burnable : MonoBehaviour
     [SerializeField] private float burnPower = 1.0f;
     // Start is called before the first frame update
 
-    [SerializeField] private int initialHealth = 1;
+    [SerializeField] public int initialHealth = 1;
 
     [SerializeField] private float speed = 1;
 

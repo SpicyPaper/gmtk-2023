@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour
 
     public GameObject TutorialCanvas;
 
+    public bool CanClick = true;
+
     [Header("Stages Config")]
     public int NumberOfSpawnBurnables = 3;
     public float BurnPowerThreshold = 10.0f;
@@ -113,6 +115,7 @@ public class GameController : MonoBehaviour
     public void UpgradePuddle()
     {
         // TODO: Upgrade puddle
+        SetPuddleSize(GetPuddleSize() + UpgradePuddleModifier);
         ((Shop)currentState).CloseShop();
     }
 

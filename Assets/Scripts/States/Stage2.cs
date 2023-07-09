@@ -17,7 +17,4 @@ public class Stage2 : StageState
         }
     }
 
-    public override void Exit()
-    {
-    }
 }
