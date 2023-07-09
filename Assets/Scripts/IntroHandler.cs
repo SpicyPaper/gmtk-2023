@@ -10,6 +10,7 @@ public class IntroHandler : MonoBehaviour
     [SerializeField] private Camera cam;
     [SerializeField] private TMP_Text starveText;
     [SerializeField] private TMP_Text startText;
+    [SerializeField] private List<TMP_Text> creditsText;
 
     [SerializeField] private List<float> elapsedTimes;
 
@@ -80,10 +81,18 @@ public class IntroHandler : MonoBehaviour
                     fireController.SetBurnPowerDecay(0);
                     SoundHandler.Instance.SetVolume(SoundHandler.SoundType.FIRE, audioSource, initFireVolume);
                     onlyOnce = false;
+                    foreach (var item in creditsText)
+                    {
+                        item.color = new Color(1, 1, 1, 1);
+                    }
                 }
                 break;
             case 20:
                 fireController.AddBurnPower(40 * Mathf.Sin(Mathf.Lerp(0, Mathf.PI / 2, perc)));
+                foreach (var item in creditsText)
+                {
+                    item.color = new Color(1, 1, 1, (Mathf.Lerp(1, 0, totalPerc)));
+                }
                 break;
             case 30:
                 fireController.SetBurnPowerDecay(5);
