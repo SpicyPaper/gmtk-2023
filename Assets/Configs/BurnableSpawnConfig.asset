@@ -19,15 +19,15 @@ MonoBehaviour:
       spawnProbability: 0.5
     - burnablePrefab: {fileID: 3730856667682868089, guid: 240f8e8e0bb662643894b73b3bf5dd1a, type: 3}
       spawnProbability: 0
-    numberOfBurnables: 1
+    numberOfBurnables: 2
     spawnInterval: 4.0405
   - level: 3
     burnableSpawnChances:
-    - burnablePrefab: {fileID: 9005850083707033920, guid: 1eb997221e5a58e499d043d46973dcd1, type: 3}
+    - burnablePrefab: {fileID: 3730856667682868089, guid: bd2fa9b8156a2e940abdbc51a8ba2466, type: 3}
       spawnProbability: 0.5
     - burnablePrefab: {fileID: 3730856667682868089, guid: 240f8e8e0bb662643894b73b3bf5dd1a, type: 3}
       spawnProbability: 0.2
-    numberOfBurnables: 3
+    numberOfBurnables: 2
     spawnInterval: 3.030375
   - level: 4
     burnableSpawnChances:
@@ -37,7 +37,7 @@ MonoBehaviour:
       spawnProbability: 0.2
     - burnablePrefab: {fileID: 8400563685522901383, guid: d9553d9960ca8bc8ab1d1730222ee627, type: 3}
       spawnProbability: 0.1
-    numberOfBurnables: 5
+    numberOfBurnables: 2
     spawnInterval: 3.030375
   - level: 5
     burnableSpawnChances:
@@ -48,6 +48,6 @@ MonoBehaviour:
     - burnablePrefab: {fileID: 8400563685522901383, guid: d9553d9960ca8bc8ab1d1730222ee627, type: 3}
       spawnProbability: 0.1
     - burnablePrefab: {fileID: 9005850083707033920, guid: 1eb997221e5a58e499d043d46973dcd1, type: 3}
-      spawnProbability: 0.1
-    numberOfBurnables: 5
+      spawnProbability: 0.05
+    numberOfBurnables: 2
     spawnInterval: 3.030375
