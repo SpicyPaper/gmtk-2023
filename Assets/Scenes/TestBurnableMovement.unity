@@ -726,6 +726,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4995501619893896952, guid: c08d35a24454abe4b85cf1797ae84321, type: 3}
+      propertyPath: initialBurnablePrefab
+      value: 
+      objectReference: {fileID: 3730856667682868089, guid: bd2fa9b8156a2e940abdbc51a8ba2466, type: 3}
+    - target: {fileID: 4995501619893896952, guid: c08d35a24454abe4b85cf1797ae84321, type: 3}
+      propertyPath: BurnablePrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995501619893896952, guid: c08d35a24454abe4b85cf1797ae84321, type: 3}
+      propertyPath: BurnablePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 3730856667682868089, guid: bd2fa9b8156a2e940abdbc51a8ba2466, type: 3}
+    - target: {fileID: 4995501619893896952, guid: c08d35a24454abe4b85cf1797ae84321, type: 3}
+      propertyPath: BurnablePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 9005850083707033920, guid: 1eb997221e5a58e499d043d46973dcd1, type: 3}
+    - target: {fileID: 4995501619893896952, guid: c08d35a24454abe4b85cf1797ae84321, type: 3}
+      propertyPath: BurnablePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 8400563685522901383, guid: d9553d9960ca8bc8ab1d1730222ee627, type: 3}
     - target: {fileID: 4995501619893896953, guid: c08d35a24454abe4b85cf1797ae84321, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class StageState : State
 {
-    int numberOfBurnables = 10;
+    int numberOfBurnables = 5;
 
-    FireController fireController;
+    protected FireController fireController;
 
     GameObject burnable;
 
@@ -24,18 +24,13 @@ public class StageState : State
                 Quaternion.identity
             );
             Burnable b = gameObject.GetComponentInChildren<Burnable>();
-            b.SetSpeed(20);
+            b.SetSpeed(10);
         }
 
     }
 
     public override void Execute()
     {
-        // Check if camera has reached its final position.
-        if (fireController.BurnPower <= 0)
-        {
-            // gameController.ChangeState(new SomeOtherState(gameController));
-        }
     }
 
     public override void Exit()

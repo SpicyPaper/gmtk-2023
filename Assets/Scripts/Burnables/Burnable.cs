@@ -20,7 +20,10 @@ public class Burnable : MonoBehaviour
 
     private void Awake()
     {
-        SoundHandler.Instance.RegisterSound(soundType);
+        if (SoundHandler.Instance != null)
+        {
+            SoundHandler.Instance.RegisterSound(soundType);
+        }
     }
 
     void Start()
