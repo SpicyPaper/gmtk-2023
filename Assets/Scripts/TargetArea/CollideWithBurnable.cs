@@ -5,6 +5,9 @@ using UnityEngine;
 public class CollideWithBurnable : MonoBehaviour
 {
     [SerializeField] private float clickCooldown = 1.0f;
+
+    [SerializeField] private Light spotlight;
+
     private float lastClickTime = -1f;
     private bool canClick = true;
     private List<Burnable> collisionList;
@@ -21,7 +24,8 @@ public class CollideWithBurnable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lastClickTime + clickCooldown < Time.time){
+        if (lastClickTime + clickCooldown < Time.time)
+        {
             canClick = true;
             gameObject.GetComponent<MeshRenderer>().material.color = Color.yellow;
         }
@@ -29,7 +33,8 @@ public class CollideWithBurnable : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (canClick){
+        if (canClick)
+        {
             handleBurnableClicked();
             handleOilSpillClicked();
             SoundHandler.Instance.PlaySound(SoundHandler.SoundType.CLICK);
@@ -63,7 +68,8 @@ public class CollideWithBurnable : MonoBehaviour
         }
     }
 
-    private void handleOilSpillClicked(){
+    private void handleOilSpillClicked()
+    {
 
         List<OilSpill> toRemove = new List<OilSpill>();
         for (int i = 0; i < oilSpillList.Count; i++)
@@ -80,24 +86,41 @@ public class CollideWithBurnable : MonoBehaviour
         for (int i = 0; i < toRemove.Count; i++)
         {
             oilSpillList.Remove(toRemove[i]);
-        }        
+        }
     }
 
-    void OnTriggerEnter(Collider other){
-        if (other.gameObject.tag == "Burnable"){
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Burnable")
+        {
             collisionList.Add(other.GetComponent<Burnable>());
         }
-        else if (other.gameObject.tag == "Oil Spill"){
+        else if (other.gameObject.tag == "Oil Spill")
+        {
             oilSpillList.Add(other.GetComponent<OilSpill>());
         }
     }
 
-    void OnTriggerExit(Collider other){
-        if (other.gameObject.tag == "Burnable"){
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Burnable")
+        {
             collisionList.Remove(other.GetComponent<Burnable>());
         }
-        else if (other.gameObject.tag == "Oil Spill"){
+        else if (other.gameObject.tag == "Oil Spill")
+        {
             oilSpillList.Remove(other.GetComponent<OilSpill>());
         }
+    }
+
+    public void UpgradeCooldown()
+    {
+        clickCooldown -= GameController.instance.UpgradeClickCooldownModifier;
+    }
+
+    public void UpgradeRange()
+    {
+        gameObject.transform.localScale *= GameController.instance.UpgradeRangeModifier;
+        spotlight.spotAngle *= GameController.instance.UpgradeRangeModifier;
     }
 }

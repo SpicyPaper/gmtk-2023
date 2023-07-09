@@ -273,3 +273,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865a7cca4b526ca41a38d535cfffd003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  clickCooldown: 1
+  spotlight: {fileID: 3307670637097186180}
