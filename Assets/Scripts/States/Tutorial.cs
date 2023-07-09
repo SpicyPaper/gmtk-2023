@@ -6,7 +6,7 @@ public class Tutorial : State
     State nextState;
 
     private float duration = 10f;
-    private float targetTimeScale = 0f;
+    private float targetTimeScale = 0.05f;
     float initialSpeed = 3.0f;
     Burnable tutorialCoal;
 
