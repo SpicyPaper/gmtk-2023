@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class FireController : MonoBehaviour
 {
@@ -17,6 +18,14 @@ public class FireController : MonoBehaviour
 
     [SerializeField] private Transform yellowFire;
 
+    [SerializeField] private float redFlameMaxValue = 8f;
+    [SerializeField] private float orangeFlameMaxValue = 5f;
+    [SerializeField] private float yellowFlameMaxValue = 2f;
+
+    [SerializeField] private float redFlameMinValue = 4f;
+    [SerializeField] private float orangeFlameMinValue = 2f;
+    [SerializeField] private float yellowFlameMinValue = 1f;
+
     private float initialScale;
 
     public float BurnPower { get; private set; }
@@ -24,6 +33,7 @@ public class FireController : MonoBehaviour
     private Vector3 initialPosition;
 
     private float minBurnPower = 0;
+    private float maxBurnPower = 0;
 
     /* create a singleton */
     public static FireController instance = null;
@@ -71,6 +81,14 @@ public class FireController : MonoBehaviour
         redFire.GetComponent<ParticleSystem>().startSize = Mathf.Max(4 * v, (Mathf.Exp(scale / 1.5f) - 1) * 4);
         yellowFire.GetComponent<ParticleSystem>().startSize = Mathf.Max(v, (Mathf.Exp(scale / 1.5f) - 1) * 1f);
         oragenFire.GetComponent<ParticleSystem>().startSize = Mathf.Max(2 * v, (Mathf.Exp(scale / 1.5f) - 1) * 2f);
+
+        VelocityOverLifetimeModule yellowVelocity = yellowFire.GetComponent<ParticleSystem>().velocityOverLifetime;
+        VelocityOverLifetimeModule redVelocity = redFire.GetComponent<ParticleSystem>().velocityOverLifetime;
+        VelocityOverLifetimeModule orangeVelocity = oragenFire.GetComponent<ParticleSystem>().velocityOverLifetime;
+
+        yellowVelocity.y = scale * 1f;
+        orangeVelocity.y = scale*3;
+        redVelocity.y = scale * 4;
     }
 
     public void ResetFireScale()
@@ -82,6 +100,11 @@ public class FireController : MonoBehaviour
     public void SetMinBurnPower(float burnPower)
     {
         minBurnPower = burnPower;
+    }
+
+    public void SetMaxBurnPower(float burnPower)
+    {
+        maxBurnPower = burnPower;
     }
 
     public void SetBurnPower(float burnPower)
@@ -96,6 +119,9 @@ public class FireController : MonoBehaviour
         if (burnPower < minBurnPower)
         {
             burnPower = minBurnPower;
+        }
+        else if(burnPower > maxBurnPower) {
+            burnPower = maxBurnPower;
         }
         SetBurnPower(burnPower);
     }
