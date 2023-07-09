@@ -6,9 +6,16 @@ public class CollideWithBurnable : MonoBehaviour
 {
     [SerializeField] private float clickCooldown = 1.0f;
 
+    [SerializeField] private float puddleCooldown = 1.0f;
+
     [SerializeField] private Light spotlight;
 
+    [SerializeField] private GameObject puddlePrefab;
+
     private float lastClickTime = -1f;
+
+    private float lastPuddleTime = -1f;
+
     private bool canClick = true;
     private List<Burnable> collisionList;
 
@@ -28,6 +35,27 @@ public class CollideWithBurnable : MonoBehaviour
         {
             canClick = true;
             gameObject.GetComponent<MeshRenderer>().material.color = Color.yellow;
+        }
+        if (lastPuddleTime + puddleCooldown < Time.time)
+        {
+            Debug.Log("Before right click");
+            // if right click
+            if (Input.GetMouseButtonDown(1))
+            {
+                Debug.Log("Right click");
+
+                lastPuddleTime = Time.time;
+                float puddleSize = GameController.instance.GetPuddleSize();
+                GameObject puddle = Instantiate(puddlePrefab, transform.position, Quaternion.identity);
+                puddle.transform.localScale = new Vector3(puddleSize, puddle.transform.localScale.y, puddleSize);
+
+                // random rotation
+                puddle.transform.Rotate(0, Random.Range(0, 360), 0);
+
+                // Find a game object with tag "Puddle Holder" and set the puddle as its child
+                GameObject puddleHolder = GameObject.FindGameObjectWithTag("Puddle Holder");
+                puddle.transform.parent = puddleHolder.transform;
+            }
         }
     }
 
