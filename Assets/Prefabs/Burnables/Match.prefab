@@ -840,6 +840,7 @@ GameObject:
   - component: {fileID: 5183023754967774941}
   - component: {fileID: 8089053383006943608}
   - component: {fileID: 6315982335000710578}
+  - component: {fileID: 4386350440054553585}
   m_Layer: 8
   m_Name: Match
   m_TagString: Untagged
@@ -913,6 +914,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4386350440054553585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5523132815512939623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd895a444f35dc24cae7a3c9b528fc10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oilSpill: {fileID: 1332367696291378478, guid: 0ea6666dbdec3c07ea8534fe58f108d8, type: 3}
 --- !u!1 &5594192942992117507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,6 +1273,7 @@ MonoBehaviour:
   initialHealth: 1
   speed: 2
   soundType: 2
+  health: 0
 --- !u!114 &828586918983397197
 MonoBehaviour:
   m_ObjectHideFlags: 0
