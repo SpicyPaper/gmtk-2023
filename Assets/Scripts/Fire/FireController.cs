@@ -19,7 +19,7 @@ public class FireController : MonoBehaviour
 
     private float initialScale;
 
-    private float burnPower;
+    public float BurnPower { get; private set; }
 
     private Vector3 initialPosition;
 
@@ -27,7 +27,7 @@ public class FireController : MonoBehaviour
     public static FireController instance = null;
 
     public float intensityChangeFrequency = 2;
-    [SerializeField]private Light fireLight;
+    [SerializeField] private Light fireLight;
     void Start()
     {
         if (instance == null)
@@ -36,7 +36,7 @@ public class FireController : MonoBehaviour
             initialPosition = transform.position;
             burnPowerDecay = -Mathf.Abs(burnPowerDecay);
             initialScale = redFire.localScale.x;
-            burnPower = initialBurnPower;
+            BurnPower = initialBurnPower;
             /* fireLight = GameObject.Find("FireLight").GetComponent<Light>(); */
             setFireScale(initialScale);
         }
@@ -55,19 +55,19 @@ public class FireController : MonoBehaviour
 
         //float yTarget = (transform.localScale.y) / 2.0f;
         //transform.Translate(0, (yTarget - transform.position.y), 0);
-        fireLight.range = scale*30;
+        fireLight.range = scale * 30;
     }
 
     public void addBurnPower(float burnPower)
     {
-        this.burnPower += burnPower;
-        if (this.burnPower < 0)
+        this.BurnPower += burnPower;
+        if (this.BurnPower < 0)
         {
-            this.burnPower = 0;
+            this.BurnPower = 0;
         }
         else
         {
-            setFireScale(this.burnPower / initialBurnPower * initialScale);
+            setFireScale(this.BurnPower / initialBurnPower * initialScale);
         }
     }
 
@@ -75,7 +75,7 @@ public class FireController : MonoBehaviour
     {
         /* gradually reducing burn power */
         addBurnPower(burnPowerDecay * Time.deltaTime);
-        float perlinNoise = Mathf.PerlinNoise(Time.frameCount/1000f*intensityChangeFrequency,0) * 500 + 500;
+        float perlinNoise = Mathf.PerlinNoise(Time.frameCount / 1000f * intensityChangeFrequency, 0) * 500 + 500;
         fireLight.intensity = perlinNoise;
     }
 

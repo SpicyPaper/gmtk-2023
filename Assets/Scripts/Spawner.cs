@@ -25,7 +25,10 @@ public class Spawner : MonoBehaviour
     private void Start()
     {
         levelConfig = spawnConfig.levelSpawnConfigs.Find(config => config.level == GameController.gameState);
-        spawnTimer = levelConfig.spawnInterval;
+        if (levelConfig != null)
+        {
+            spawnTimer = levelConfig.spawnInterval;
+        }
     }
 
     void FixedUpdate()

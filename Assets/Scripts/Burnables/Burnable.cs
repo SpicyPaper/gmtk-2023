@@ -40,6 +40,11 @@ public class Burnable : MonoBehaviour
         return speed;
     }
 
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
+
     public bool TakeDamage(int damage)
     {
         health -= damage;
@@ -64,7 +69,8 @@ public class Burnable : MonoBehaviour
     }
 
 
-    public void OnDestroy(){
+    public void OnDestroy()
+    {
         Destroy(gameObject.transform.parent.gameObject);
 
         SoundHandler.Instance.UnregisterSound(soundType);

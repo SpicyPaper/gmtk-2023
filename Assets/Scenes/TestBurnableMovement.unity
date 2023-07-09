@@ -508,6 +508,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: 0.051107645
       objectReference: {fileID: 0}
+    - target: {fileID: 2230927939383238990, guid: a9fc07d53cc2774d49b19a41569e0ca1, type: 3}
+      propertyPath: initialBurnPower
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 4178470861915768106, guid: a9fc07d53cc2774d49b19a41569e0ca1, type: 3}
       propertyPath: m_Name
       value: Fire
