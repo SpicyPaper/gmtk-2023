@@ -16,14 +16,16 @@ public class CoalBoyCollider : BurnableCollider
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    protected override void OnTriggerEnter(Collider other)
     {
-        Debug.Log("CoalBoyCollider: Any Trigger Entered");
+
+        // call base class
+        base.OnTriggerEnter(other);
+
         if (other.gameObject.tag == "Oil Spill")
         {
             OilSpill oilSpill = other.GetComponent<OilSpill>();
 
-            Debug.Log("CoalBoyCollider: OnTriggerEnter: OilSpill is burning: " + oilSpill.IsBurning());
 
             if (oilSpill != null && oilSpill.IsBurning())
             {                
@@ -31,8 +33,8 @@ public class CoalBoyCollider : BurnableCollider
                 this.Invoke("setMyselfOnFire", 0.2f);
             }
 
-
         }
+
     }
 
     void setMyselfOnFire()
