@@ -19,7 +19,7 @@ public class FireController : MonoBehaviour
 
     private float initialScale;
 
-    private float burnPower;
+    public float burnPower;
 
     private Vector3 initialPosition;
 
