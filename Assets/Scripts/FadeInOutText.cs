@@ -9,7 +9,7 @@ public class FadeInOutText : MonoBehaviour
 
     private float elapsed = 0;
 
-    private float neededTime = 2;
+    private float neededTime = 1.5f;
 
     private int direction = 1;
 
@@ -17,6 +17,7 @@ public class FadeInOutText : MonoBehaviour
     void Start()
     {
         text = GetComponent<TMP_Text>();
+        text.color = new Color(1, 1, 1, 0);
     }
 
     // Update is called once per frame

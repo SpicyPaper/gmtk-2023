@@ -10,6 +10,7 @@ public class SoundHandler : MonoBehaviour
 {
     public enum SoundType
     {
+        COAL_ONE,
         COAL_VOICE,
         BIG_COAL_VOICE,
         MATCHES_VOICE,
@@ -24,6 +25,7 @@ public class SoundHandler : MonoBehaviour
 
     [SerializeField] private GameObject audioSourceModel = null;
 
+    [SerializeField] private List<AudioClip> coalOnes = null;
     [SerializeField] private List<AudioClip> coals = null;
     [SerializeField] private List<AudioClip> bigCoals = null;
     [SerializeField] private List<AudioClip> matches = null;
@@ -50,6 +52,7 @@ public class SoundHandler : MonoBehaviour
 
             registeredSounds = new Dictionary<SoundType, ArrayList>
             {
+                { SoundType.COAL_ONE, new ArrayList() { 0, null } },
                 { SoundType.COAL_VOICE, new ArrayList() { 0, null } },
                 { SoundType.BIG_COAL_VOICE, new ArrayList() { 0, null } },
                 { SoundType.MATCHES_VOICE, new ArrayList() { 0, null } },
@@ -98,12 +101,15 @@ public class SoundHandler : MonoBehaviour
 
         List<AudioClip> audioClips = null;
         AudioSourceManager audioSourceManager = null;
-        float volume = 0;
 
         bool loop = false;
 
         switch (soundType)
         {
+            case SoundType.COAL_ONE:
+                audioClips = coalOnes;
+                audioSourceManager = audioSourceObject.GetComponent<AudioSourceManager>();
+                break;
             case SoundType.COAL_VOICE:
                 audioClips = coals;
                 audioSourceManager = audioSourceObject.GetComponent<AudioSourceManager>();
@@ -143,7 +149,7 @@ public class SoundHandler : MonoBehaviour
         AudioClip audioClip = audioClips[UnityEngine.Random.Range(0, audioClips.Count)];
         audioSource.clip = audioClip;
         audioSource.loop = loop;
-        SetVolume(soundType, audioSource, volume);
+        SetVolume(soundType, audioSource, MaxVolume(soundType));
 
         audioSourceObject.GetComponent<AudioSourceManager>().Play();
 
@@ -154,6 +160,8 @@ public class SoundHandler : MonoBehaviour
     {
         switch (soundType)
         {
+            case SoundType.COAL_ONE:
+                return 0.8f;
             case SoundType.COAL_VOICE:
                 return 0.8f;
             case SoundType.BIG_COAL_VOICE:
@@ -167,7 +175,7 @@ public class SoundHandler : MonoBehaviour
             case SoundType.FIRE:
                 return 0.6f;
             case SoundType.CLICK:
-                return 1;
+                return 0.7f;
         }
 
         return 0;
@@ -181,5 +189,13 @@ public class SoundHandler : MonoBehaviour
         }
 
         audioSource.volume = volume;
+    }
+
+    public void ClearAllSounds()
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i));
+        }
     }
 }

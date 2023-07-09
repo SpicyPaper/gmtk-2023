@@ -31,7 +31,9 @@ public class CollideWithBurnable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lastClickTime + clickCooldown < Time.time)
+
+
+        if (lastClickTime + clickCooldown < Time.time || GameController.gameState == GameState.Tutorial)
         {
             canClick = true;
             gameObject.GetComponent<MeshRenderer>().material.color = Color.yellow;

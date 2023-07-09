@@ -12,7 +12,9 @@ public class GameController : MonoBehaviour
 
     public List<GameObject> BurnablePrefabs;
 
-    public GameObject Canvas;
+    public GameObject ShopCanvas;
+
+    public GameObject TutorialCanvas;
 
     [Header("Stages Config")]
     public int NumberOfSpawnBurnables = 3;
@@ -42,7 +44,9 @@ public class GameController : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
-        ChangeState(new Stage1(this, BurnablePrefabs[0]));
+        State nextState = new Stage1(this, BurnablePrefabs[0]);
+
+        ChangeState(new Tutorial(this, nextState));
     }
 
     void Update()

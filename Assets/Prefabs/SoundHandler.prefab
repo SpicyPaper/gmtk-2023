@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSourceModel: {fileID: 5634572457838826448, guid: a3370ecf785d1a34d9d63703705103a7, type: 3}
+  coalOnes:
+  - {fileID: 8300000, guid: ac9768787c9737a418f5c2dab02395de, type: 3}
   coals:
   - {fileID: 8300000, guid: f9f4154914818284ba197913ca64eaa2, type: 3}
   bigCoals:

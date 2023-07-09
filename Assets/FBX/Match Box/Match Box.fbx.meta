@@ -121,6 +121,13 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.43455496
+        functionName: TakeMatch
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 15d925734a510212ca4bc44f28a2bf71, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.68324614
         functionName: ThrowMatch
         data: 

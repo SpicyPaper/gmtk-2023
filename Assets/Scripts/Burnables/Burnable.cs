@@ -14,7 +14,7 @@ public class Burnable : MonoBehaviour
 
     [SerializeField] public SoundHandler.SoundType soundType;
 
-    private int health;
+    public int health;
 
     private Animator animator;
 

@@ -30,7 +30,7 @@ public class FireController : MonoBehaviour
 
     public float intensityChangeFrequency = 2;
     [SerializeField] private Light fireLight;
-    void Start()
+    void Awake()
     {
         if (instance == null)
         {
@@ -65,11 +65,11 @@ public class FireController : MonoBehaviour
 
         //float yTarget = (transform.localScale.y) / 2.0f;
         //transform.Translate(0, (yTarget - transform.position.y), 0);
-        fireLight.range = (Mathf.Exp(scale / 1.5f)-1) * 100;
+        fireLight.range = (Mathf.Exp(scale / 1.5f) - 1) * 100;
 
         float v = 0f;
-        redFire.GetComponent<ParticleSystem>().startSize = Mathf.Max(4*v,(Mathf.Exp(scale / 1.5f) - 1) * 4) ;
-        yellowFire.GetComponent<ParticleSystem>().startSize = Mathf.Max( v, (Mathf.Exp(scale / 1.5f) - 1) * 1f);
+        redFire.GetComponent<ParticleSystem>().startSize = Mathf.Max(4 * v, (Mathf.Exp(scale / 1.5f) - 1) * 4);
+        yellowFire.GetComponent<ParticleSystem>().startSize = Mathf.Max(v, (Mathf.Exp(scale / 1.5f) - 1) * 1f);
         oragenFire.GetComponent<ParticleSystem>().startSize = Mathf.Max(2 * v, (Mathf.Exp(scale / 1.5f) - 1) * 2f);
     }
 
