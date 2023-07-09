@@ -77,7 +77,7 @@ public class FireController : MonoBehaviour
         //transform.Translate(0, (yTarget - transform.position.y), 0);
         fireLight.range = (Mathf.Exp(scale / 1.5f) - 1) * 100;
 
-        float v = 0f;
+        float v = 1f;
         redFire.GetComponent<ParticleSystem>().startSize = Mathf.Min(8,Mathf.Max(4 * v, (Mathf.Exp(scale / 1.5f) - 1) * 4));
         yellowFire.GetComponent<ParticleSystem>().startSize = Mathf.Min(3, Mathf.Max(v, (Mathf.Exp(scale / 1.5f) - 1) * 1f));
         oragenFire.GetComponent<ParticleSystem>().startSize = Mathf.Min(5, Mathf.Max(2 * v, (Mathf.Exp(scale / 1.5f) - 1) * 2f));
