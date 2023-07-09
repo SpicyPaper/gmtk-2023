@@ -9,6 +9,7 @@ public class Stage3 : StageState
     {
 
         currentLevel = GameState.Level3;
+        waitTimeBeforeLevelStart = gameController.WaitTimeBeforeLevel3Start;
     }
 
     public override void Execute()

@@ -4,7 +4,6 @@ using System.Collections;
 
 public class StageState : State
 {
-    int numberOfBurnables = 5;
     protected float waitTimeBeforeLevelStart = 3.0f;
     protected GameState currentLevel;
 
@@ -20,7 +19,7 @@ public class StageState : State
     public override void Enter()
     {
         fireController = GameObject.FindWithTag("Fire").GetComponent<FireController>();
-        for (int i = 0; i < numberOfBurnables; i++)
+        for (int i = 0; i < gameController.NumberOfSpawnBurnables; i++)
         {
             GameObject gameObject = GameObject.Instantiate(
                 burnable,

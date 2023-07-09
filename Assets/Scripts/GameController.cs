@@ -14,6 +14,13 @@ public class GameController : MonoBehaviour
 
     public GameObject Canvas;
 
+    [Header("Stages Config")]
+    public int NumberOfSpawnBurnables = 3;
+    public float BurnPowerThreshold = 10.0f;
+    public float WaitTimeBeforeLevel1Start = 3.0f;
+    public float WaitTimeBeforeLevel2Start = 3.0f;
+    public float WaitTimeBeforeLevel3Start = 3.0f;
+    public float WaitTimeBeforeLevel4Start = 3.0f;
 
     // Start is called before the first frame update
     void Start()
