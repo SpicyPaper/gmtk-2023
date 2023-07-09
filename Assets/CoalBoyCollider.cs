@@ -19,7 +19,6 @@ public class CoalBoyCollider : BurnableCollider
 
     protected override void OnTriggerEnter(Collider other)
     {
-
         // call base class
         base.OnTriggerEnter(other);
 
@@ -27,15 +26,12 @@ public class CoalBoyCollider : BurnableCollider
         {
             OilSpill oilSpill = other.GetComponent<OilSpill>();
 
-
             if (oilSpill != null && oilSpill.IsBurning())
             {                
                 // invoke SetOnFire() on oilSpill with delay
                 this.Invoke("setMyselfOnFire", 0.2f);
             }
-
         }
-
     }
 
     void setMyselfOnFire()
