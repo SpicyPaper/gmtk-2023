@@ -32,17 +32,15 @@ public class Stage4 : StageState
             if (onlyOnce)
             {
                 onlyOnce = false;
-                gameController.StartCoroutine(WaitLevelStart());
+                gameController.StartCoroutine(WaitLevelStart2());
             }
 
         }
     }
-    IEnumerator WaitLevelStart()
+
+    IEnumerator WaitLevelStart2()
     {
         yield return new WaitForSeconds(neededTime);
         SceneManager.LoadScene("IntroScene");
     }
-
-
-
 }

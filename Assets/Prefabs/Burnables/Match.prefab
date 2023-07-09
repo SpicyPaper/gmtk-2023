@@ -1272,7 +1272,7 @@ MonoBehaviour:
   burnPower: 20
   initialHealth: 1
   speed: 2
-  soundType: 2
+  soundType: 3
   health: 0
 --- !u!114 &828586918983397197
 MonoBehaviour:

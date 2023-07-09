@@ -1099,6 +1099,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4995501619893896952, guid: c08d35a24454abe4b85cf1797ae84321, type: 3}
+      propertyPath: WaitTimeBeforeLevel4Start
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995501619893896952, guid: c08d35a24454abe4b85cf1797ae84321, type: 3}
       propertyPath: BurnablePrefabs.Array.size
       value: 4
       objectReference: {fileID: 0}

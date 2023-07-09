@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
 
+        //FireController.instance.SetBurnPowerDecay(1.5f);
         State nextState = new Stage0(this, BurnablePrefabs[0]);
 
         ChangeState(nextState);
