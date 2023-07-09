@@ -33,7 +33,7 @@ public class FireController : MonoBehaviour
     private Vector3 initialPosition;
 
     private float minBurnPower = 0;
-    private float maxBurnPower = 0;
+    private float maxBurnPower = float.MaxValue;
 
     /* create a singleton */
     public static FireController instance = null;
@@ -78,17 +78,17 @@ public class FireController : MonoBehaviour
         fireLight.range = (Mathf.Exp(scale / 1.5f) - 1) * 100;
 
         float v = 0f;
-        redFire.GetComponent<ParticleSystem>().startSize = Mathf.Max(4 * v, (Mathf.Exp(scale / 1.5f) - 1) * 4);
-        yellowFire.GetComponent<ParticleSystem>().startSize = Mathf.Max(v, (Mathf.Exp(scale / 1.5f) - 1) * 1f);
-        oragenFire.GetComponent<ParticleSystem>().startSize = Mathf.Max(2 * v, (Mathf.Exp(scale / 1.5f) - 1) * 2f);
+        redFire.GetComponent<ParticleSystem>().startSize = Mathf.Min(8,Mathf.Max(4 * v, (Mathf.Exp(scale / 1.5f) - 1) * 4));
+        yellowFire.GetComponent<ParticleSystem>().startSize = Mathf.Min(3, Mathf.Max(v, (Mathf.Exp(scale / 1.5f) - 1) * 1f));
+        oragenFire.GetComponent<ParticleSystem>().startSize = Mathf.Min(5, Mathf.Max(2 * v, (Mathf.Exp(scale / 1.5f) - 1) * 2f));
 
         VelocityOverLifetimeModule yellowVelocity = yellowFire.GetComponent<ParticleSystem>().velocityOverLifetime;
         VelocityOverLifetimeModule redVelocity = redFire.GetComponent<ParticleSystem>().velocityOverLifetime;
         VelocityOverLifetimeModule orangeVelocity = oragenFire.GetComponent<ParticleSystem>().velocityOverLifetime;
 
-        yellowVelocity.y = scale * 1f;
-        orangeVelocity.y = scale*3;
-        redVelocity.y = scale * 4;
+        yellowVelocity.y = Mathf.Min(3, scale * 1f);
+        orangeVelocity.y = Mathf.Min(5, scale *3);
+        redVelocity.y = Mathf.Min(8,scale * 4);
     }
 
     public void ResetFireScale()
