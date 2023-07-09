@@ -7,6 +7,7 @@ public class CoalBoyCollider : BurnableCollider
 
     [SerializeField] private GameObject coalBoyBody;
 
+    private bool onFire = false;
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Fire")
@@ -38,9 +39,11 @@ public class CoalBoyCollider : BurnableCollider
     }
 
     void setMyselfOnFire()
-    {
-        coalBoyBody.GetComponent<SkinnedMeshRenderer>().material.color = Color.red;
-        burnable.SetSpeed(burnable.GetSpeed() * 2);
+    {   
+        if (!onFire){
+            onFire = true;
+            coalBoyBody.GetComponent<SkinnedMeshRenderer>().material.color = Color.red;
+            burnable.SetSpeed(burnable.GetSpeed() * 2);
+        }
     }
-
 }

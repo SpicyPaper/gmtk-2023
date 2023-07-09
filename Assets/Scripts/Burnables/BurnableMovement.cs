@@ -51,6 +51,9 @@ public class BurnableMovement : MonoBehaviour
             targetPosition,
             burnable.GetSpeed() * Time.deltaTime
         );
+        // if (animator != null)
+        // {
+        //     animator.speed = 2.5f * burnable.GetSpeed();
+        // }
     }
-
 }
