@@ -9647,6 +9647,9 @@ MonoBehaviour:
   redFire: {fileID: 3958470734420205156}
   oragenFire: {fileID: 4247593912052701364}
   yellowFire: {fileID: 7883516808342219386}
+  redFlameMaxValue: 15
+  orangeFlameMaxValue: 10
+  yellowFlameMaxValue: 5
   intensityChangeFrequency: 2
   fireLight: {fileID: 1864346509497306247}
 --- !u!65 &1513364331589221571
